@@ -1,4 +1,7 @@
 import React from "react";
+import PropTypes from "prop-types";
+
+import {offerShape} from "../../utils/prop-types.js";
 import PlaceCard from "../place-card/place-card.jsx";
 
 const Main = (props) => {
@@ -88,8 +91,9 @@ const Main = (props) => {
                 </ul>
               </form>
               <div className="cities__places-list places__list tabs__content">
+
                 {offers.map((offer) => {
-                  return <PlaceCard offer={offer} key={offer.id}/>
+                  return <PlaceCard offer={offer} key={offer.id}/>;
                 })}
 
               </div>
@@ -105,3 +109,7 @@ const Main = (props) => {
 };
 
 export default Main;
+
+Main.propTypes = {
+  offers: PropTypes.arrayOf(PropTypes.shape(offerShape)),
+};

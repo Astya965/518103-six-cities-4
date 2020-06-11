@@ -1,4 +1,7 @@
 import React from "react";
+import PropTypes from "prop-types";
+
+import {offerShape} from "../../utils/prop-types.js";
 
 const PlaceCard = (props) => {
   const {offer} = props;
@@ -43,3 +46,8 @@ const PlaceCard = (props) => {
 };
 
 export default PlaceCard;
+
+PlaceCard.propTypes = {
+  offer: PropTypes.shape(offerShape),
+};
+
