@@ -17,8 +17,8 @@ const genrateOffer = () => {
   return {
     id: shortid.generate(),
     title: getRandomElement(PLACE_TITLES),
-  }
-}
+  };
+};
 
 /**
  * Генерация массива предложений
