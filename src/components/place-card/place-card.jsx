@@ -45,9 +45,9 @@ const PlaceCard = (props) => {
   );
 };
 
-export default PlaceCard;
-
 PlaceCard.propTypes = {
   offer: PropTypes.shape(offerShape).isRequired,
 };
+
+export default PlaceCard;
 

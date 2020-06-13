@@ -108,8 +108,8 @@ const Main = (props) => {
   );
 };
 
-export default Main;
-
 Main.propTypes = {
   offers: PropTypes.arrayOf(PropTypes.shape(offerShape)).isRequired,
 };
+
+export default Main;

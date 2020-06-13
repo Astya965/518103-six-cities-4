@@ -11,8 +11,8 @@ const App = (props) => {
 
 };
 
-export default App;
-
 App.propTypes = {
   offers: PropTypes.arrayOf(PropTypes.shape(offerShape)).isRequired,
 };
+
+export default App;
