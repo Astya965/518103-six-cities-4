@@ -13,7 +13,7 @@ const PLACE_TITLES = [
  * Генерация моков для предложения
  * @return {Object} Данные для предложения
  */
-const genrateOffer = () => {
+const generateOffer = () => {
   return {
     id: shortid.generate(),
     title: getRandomElement(PLACE_TITLES),
@@ -28,7 +28,7 @@ const genrateOffer = () => {
 const generateOffers = (count) => {
   return new Array(count)
   .fill(null)
-  .map(genrateOffer);
+  .map(generateOffer);
 };
 
 export const offers = generateOffers(OFFERS_COUNT);
