@@ -11,7 +11,9 @@ const testOffer = {
 it(`Render PlaceCard`, () => {
   const tree = renderer.
     create(
-        <PlaceCard offer={testOffer} />
+        <PlaceCard offer={testOffer}
+          onPlaceHeaderClick={() => {}}
+        />
     ).toJSON();
 
   expect(tree).toMatchSnapshot();

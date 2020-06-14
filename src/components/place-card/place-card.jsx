@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import {offerShape} from "../../utils/prop-types.js";
 
 const PlaceCard = (props) => {
-  const {offer} = props;
+  const {offer, onPlaceHeaderClick} = props;
   const {title} = offer;
 
   return (
@@ -36,7 +36,8 @@ const PlaceCard = (props) => {
             <span className="visually-hidden">Rating</span>
           </div>
         </div>
-        <h2 className="place-card__name">
+        <h2 className="place-card__name"
+          onClick={onPlaceHeaderClick}>
           <a href="#">{title}</a>
         </h2>
         <p className="place-card__type">Apartment</p>
@@ -47,6 +48,7 @@ const PlaceCard = (props) => {
 
 PlaceCard.propTypes = {
   offer: PropTypes.shape(offerShape).isRequired,
+  onPlaceHeaderClick: PropTypes.func.isRequired,
 };
 
 export default PlaceCard;

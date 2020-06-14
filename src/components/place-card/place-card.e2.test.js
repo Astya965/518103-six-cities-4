@@ -18,7 +18,9 @@ describe(`PlaceCard tests`, () => {
   const onPlaceHeaderClick = jest.fn();
 
   const placeComponent = shallow(
-      <PlaceCard offer={testOffer} />
+      <PlaceCard offer={testOffer}
+        onPlaceHeaderClick={onPlaceHeaderClick}
+      />
   );
 
   it(`Should title be pressed`, () => {
