@@ -36,9 +36,8 @@ const PlaceCard = (props) => {
             <span className="visually-hidden">Rating</span>
           </div>
         </div>
-        <h2 className="place-card__name"
-          onClick={onPlaceHeaderClick}>
-          <a href="#">{title}</a>
+        <h2 className="place-card__name">
+          <a href="#" onClick={onPlaceHeaderClick}>{title}</a>
         </h2>
         <p className="place-card__type">Apartment</p>
       </div>

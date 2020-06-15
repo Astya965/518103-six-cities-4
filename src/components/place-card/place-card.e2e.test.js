@@ -20,7 +20,7 @@ describe(`PlaceCard tests`, () => {
 
   it(`Should title be pressed`, () => {
 
-    const placeTitle = placeComponent.find(`h2.place-card__name`);
+    const placeTitle = placeComponent.find(`h2.place-card__name a`);
 
     placeTitle.simulate(`click`);
     expect(onPlaceHeaderClick).toHaveBeenCalledTimes(1);

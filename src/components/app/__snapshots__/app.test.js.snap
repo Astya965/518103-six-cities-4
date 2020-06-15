@@ -311,10 +311,10 @@ exports[`Render App 1`] = `
                 </div>
                 <h2
                   className="place-card__name"
-                  onClick={[Function]}
                 >
                   <a
                     href="#"
+                    onClick={[Function]}
                   >
                     Test name-1
                   </a>
@@ -413,10 +413,10 @@ exports[`Render App 1`] = `
                 </div>
                 <h2
                   className="place-card__name"
-                  onClick={[Function]}
                 >
                   <a
                     href="#"
+                    onClick={[Function]}
                   >
                     Test name-2
                   </a>
