@@ -5,7 +5,7 @@ import {offerShape} from "../../utils/prop-types.js";
 import PlaceCard from "../place-card/place-card.jsx";
 
 const Main = (props) => {
-  const {offers} = props;
+  const {offers, placeHeaderClickHandler} = props;
 
   return (
     <div className="page page--gray page--main">
@@ -93,7 +93,11 @@ const Main = (props) => {
               <div className="cities__places-list places__list tabs__content">
 
                 {offers.map((offer) => {
-                  return <PlaceCard offer={offer} key={offer.id}/>;
+                  return <PlaceCard
+                    offer={offer}
+                    onPlaceHeaderClick={placeHeaderClickHandler}
+                    key={offer.id}
+                  />;
                 })}
 
               </div>
@@ -110,6 +114,7 @@ const Main = (props) => {
 
 Main.propTypes = {
   offers: PropTypes.arrayOf(PropTypes.shape(offerShape)).isRequired,
+  placeHeaderClickHandler: PropTypes.func.isRequired,
 };
 
 export default Main;
