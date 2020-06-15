@@ -17,12 +17,14 @@ const testOffer = {
 describe(`PlaceCard tests`, () => {
 
   const onPlaceHeaderClick = jest.fn();
-  const onCardPointerEnter = jest.fn();
-  const onCardPointerLeave = jest.fn();
+  const handleCardPointerEnter = jest.fn();
+  const handleCardPointerLeave = jest.fn();
 
   const placeComponent = shallow(
       <PlaceCard offer={testOffer}
         onPlaceHeaderClick={onPlaceHeaderClick}
+        handleCardPointerEnter = {handleCardPointerEnter}
+        handleCardPointerLeave = {handleCardPointerLeave}
       />
   );
 
@@ -38,13 +40,13 @@ describe(`PlaceCard tests`, () => {
 
   it(`Should get offer ID on pointer enter`, () => {
     placeCard.simulate(`pointerenter`);
-    expect(onCardPointerEnter).toHaveBeenCalledTimes(1);
-    expect({value: onCardPointerEnter.mock.call[0][0]}).toMatchObject({value: testOffer});
+    expect(handleCardPointerEnter).toHaveBeenCalledTimes(1);
+    expect({value: handleCardPointerEnter.mock.calls[0][0]}).toMatchObject({value: testOffer});
   });
 
   it(`Should get null on pointer leave`, () => {
     placeCard.simulate(`pointerleave`);
-    expect(onCardPointerLeave).toHaveBeenCalledTimes(1);
+    expect(handleCardPointerLeave).toHaveBeenCalledTimes(1);
   });
 
 });
