@@ -19,6 +19,8 @@ it(`Render PlaceCard`, () => {
     create(
         <PlaceCard offer={testOffer}
           onPlaceHeaderClick={() => {}}
+          handleCardPointerEnter = {() => {}}
+          handleCardPointerLeave = {() => {}}
         />
     ).toJSON();
 
