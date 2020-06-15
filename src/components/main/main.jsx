@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import {offerShape} from "../../utils/prop-types.js";
-import PlaceCard from "../place-card/place-card.jsx";
+import PlacesList from "../places-list/places-list.jsx";
 
 const Main = (props) => {
   const {offers, placeHeaderClickHandler} = props;
@@ -90,17 +90,8 @@ const Main = (props) => {
                   <li className="places__option" tabIndex="0">Top rated first</li>
                 </ul>
               </form>
-              <div className="cities__places-list places__list tabs__content">
-
-                {offers.map((offer) => {
-                  return <PlaceCard
-                    offer={offer}
-                    onPlaceHeaderClick={placeHeaderClickHandler}
-                    key={offer.id}
-                  />;
-                })}
-
-              </div>
+              <PlacesList offers={offers}
+                placeHeaderClickHandler={placeHeaderClickHandler} />
             </section>
             <div className="cities__right-section">
               <section className="cities__map map"></section>
