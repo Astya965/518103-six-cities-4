@@ -1,13 +1,18 @@
 import shortid from "shortid";
-import {getRandomElement} from "../utils/utils.js";
+import {getRandomNumber, getRandomElement, getRandomBoolean} from "../utils/utils.js";
+import {offerTypesMap} from "../utils/constants.js";
 
 const OFFERS_COUNT = 4;
 
-const PLACE_TITLES = [
+const titles = [
   `Beautiful & luxurious apartment at great location`,
   `Wood and stone place`,
   `Canal View Prinsengracht`,
   `Nice, cozy, warm big bed apartment`];
+
+const photos = [`img/apartment-01.jpg`, `img/apartment-02.jpg`, `img/apartment-03.jpg`, `img/room.jpg`];
+
+const types = [offerTypesMap.apartment, offerTypesMap.room, offerTypesMap.house, offerTypesMap.hotel];
 
 /**
  * Генерация моков для предложения
@@ -16,7 +21,13 @@ const PLACE_TITLES = [
 const generateOffer = () => {
   return {
     id: shortid.generate(),
-    title: getRandomElement(PLACE_TITLES),
+    isPremium: getRandomBoolean(),
+    isFavourite: getRandomBoolean(),
+    previewImage: getRandomElement(photos),
+    price: getRandomNumber(10, 300),
+    rating: getRandomNumber(0, 5),
+    type: getRandomElement(types),
+    title: getRandomElement(titles),
   };
 };
 

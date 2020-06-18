@@ -1,15 +1,16 @@
 import React from "react";
 import renderer from "react-test-renderer";
 
-import App from "./app.jsx";
+import PlacesList from "./places-list.jsx";
 import {testOffers} from "../../mocks/test-mocks.js";
 
-it(`Render App`, () => {
+it(`Render PlacesList`, () => {
+
   const tree = renderer.
     create(
-        <App offers={testOffers}/>
+        <PlacesList offers={testOffers}
+          placeHeaderClickHandler={() => {}}/>
     ).toJSON();
 
   expect(tree).toMatchSnapshot();
-
 });
