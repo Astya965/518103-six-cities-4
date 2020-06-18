@@ -14,7 +14,7 @@ export const getRandomNumber = (min, max) => {
  * @return {Any} Случайный элемент массива
  */
 export const getRandomElement = (array) => {
-  const randomIndex = Math.floor(Math.random() * (array.length));
+  const randomIndex = getRandomNumber(0, array.length - 1);
   return array[randomIndex];
 };
 
@@ -23,8 +23,7 @@ export const getRandomElement = (array) => {
  * @return {Boolean}
  */
 export const getRandomBoolean = () => {
-  const boolean = (Math.floor(Math.random() < 0.5)) ? true : false;
-  return boolean;
+  return Boolean(getRandomNumber(0, 1));
 };
 
 /**
