@@ -1,17 +1,30 @@
 import React from "react";
 import PropTypes from "prop-types";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
 import {offerShape} from "../../utils/prop-types.js";
 import Main from "../main/main.jsx";
+import PlaceDetails from "../place-details/place-details.jsx";
 
 const placeHeaderClickHandler = () => {};
 
 const App = (props) => {
   const {offers} = props;
 
-  return <Main
-    offers={offers}
-    placeHeaderClickHandler={placeHeaderClickHandler} />;
+  return (
+      <Router>
+        <Switch>
+          <Route exact path="/">
+            <Main
+              offers={offers}
+              placeHeaderClickHandler={placeHeaderClickHandler} />;
+          </Route>
+          <Route exact path="/dev-component">
+            <PlaceDetails />
+          </Route>
+        </Switch>
+      </Router>
+  );
 
 };
 
