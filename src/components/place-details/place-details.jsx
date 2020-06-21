@@ -45,7 +45,7 @@ const PlaceDetails = () => {
               </div>
               <div className="property__rating rating">
                 <div className="property__stars rating__stars">
-                  <span style="width: 80%"></span>
+                  <span style={{width: `80%`}}></span>
                   <span className="visually-hidden">Rating</span>
                 </div>
                 <span className="property__rating-value rating__value">4.8</span>
@@ -134,50 +134,50 @@ const PlaceDetails = () => {
                     <div className="reviews__info">
                       <div className="reviews__rating rating">
                         <div className="reviews__stars rating__stars">
-                          <span style="width: 80%"></span>
+                          <span style={{width: `80%`}}></span>
                           <span className="visually-hidden">Rating</span>
                         </div>
                       </div>
                       <p className="reviews__text">
                         A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.
                       </p>
-                      <time className="reviews__time" datetime="2019-04-24">April 2019</time>
+                      <time className="reviews__time" dateTime="2019-04-24">April 2019</time>
                     </div>
                   </li>
                 </ul>
                 <form className="reviews__form form" action="#" method="post">
-                  <label className="reviews__label form__label" for="review">Your review</label>
+                  <label className="reviews__label form__label" htmlFor="review">Your review</label>
                   <div className="reviews__rating-form form__rating">
                     <input className="form__rating-input visually-hidden" name="rating" value="5" id="5-stars" type="radio" />
-                    <label for="5-stars" className="reviews__rating-label form__rating-label" title="perfect">
+                    <label htmlFor="5-stars" className="reviews__rating-label form__rating-label" title="perfect">
                       <svg className="form__star-image" width="37" height="33">
                         <use xlinkHref="#icon-star"></use>
                       </svg>
                     </label>
 
                     <input className="form__rating-input visually-hidden" name="rating" value="4" id="4-stars" type="radio" />
-                    <label for="4-stars" className="reviews__rating-label form__rating-label" title="good">
+                    <label htmlFor="4-stars" className="reviews__rating-label form__rating-label" title="good">
                       <svg className="form__star-image" width="37" height="33">
                         <use xlinkHref="#icon-star"></use>
                       </svg>
                     </label>
 
                     <input className="form__rating-input visually-hidden" name="rating" value="3" id="3-stars" type="radio" />
-                    <label for="3-stars" className="reviews__rating-label form__rating-label" title="not bad">
+                    <label htmlFor="3-stars" className="reviews__rating-label form__rating-label" title="not bad">
                       <svg className="form__star-image" width="37" height="33">
                         <use xlinkHref="#icon-star"></use>
                       </svg>
                     </label>
 
                     <input className="form__rating-input visually-hidden" name="rating" value="2" id="2-stars" type="radio" />
-                    <label for="2-stars" className="reviews__rating-label form__rating-label" title="badly">
+                    <label htmlFor="2-stars" className="reviews__rating-label form__rating-label" title="badly">
                       <svg className="form__star-image" width="37" height="33">
                         <use xlinkHref="#icon-star"></use>
                       </svg>
                     </label>
 
                     <input className="form__rating-input visually-hidden" name="rating" value="1" id="1-star" type="radio" />
-                    <label for="1-star" className="reviews__rating-label form__rating-label" title="terribly">
+                    <label htmlFor="1-star" className="reviews__rating-label form__rating-label" title="terribly">
                       <svg className="form__star-image" width="37" height="33">
                         <use xlinkHref="#icon-star"></use>
                       </svg>
@@ -221,7 +221,7 @@ const PlaceDetails = () => {
                   </div>
                   <div className="place-card__rating rating">
                     <div className="place-card__stars rating__stars">
-                      <span style="width: 80%"></span>
+                      <span style={{width: `80%`}}></span>
                       <span className="visually-hidden">Rating</span>
                     </div>
                   </div>
@@ -253,7 +253,7 @@ const PlaceDetails = () => {
                   </div>
                   <div className="place-card__rating rating">
                     <div className="place-card__stars rating__stars">
-                      <span style="width: 80%"></span>
+                      <span style={{width: `80%`}}></span>
                       <span className="visually-hidden">Rating</span>
                     </div>
                   </div>
@@ -285,7 +285,7 @@ const PlaceDetails = () => {
                   </div>
                   <div className="place-card__rating rating">
                     <div className="place-card__stars rating__stars">
-                      <span style="width: 100%"></span>
+                      <span style={{width: `100%`}}></span>
                       <span className="visually-hidden">Rating</span>
                     </div>
                   </div>
