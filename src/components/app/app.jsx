@@ -17,7 +17,7 @@ const App = (props) => {
         <Route exact path="/">
           <Main
             offers={offers}
-            placeHeaderClickHandler={placeHeaderClickHandler} />;
+            placeHeaderClickHandler={placeHeaderClickHandler} />
         </Route>
         <Route exact path="/dev-component">
           <PlaceDetails offer={offers[0]} />
