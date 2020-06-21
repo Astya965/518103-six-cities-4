@@ -12,18 +12,18 @@ const App = (props) => {
   const {offers} = props;
 
   return (
-      <Router>
-        <Switch>
-          <Route exact path="/">
-            <Main
-              offers={offers}
-              placeHeaderClickHandler={placeHeaderClickHandler} />;
-          </Route>
-          <Route exact path="/dev-component">
-            <PlaceDetails />
-          </Route>
-        </Switch>
-      </Router>
+    <Router>
+      <Switch>
+        <Route exact path="/">
+          <Main
+            offers={offers}
+            placeHeaderClickHandler={placeHeaderClickHandler} />;
+        </Route>
+        <Route exact path="/dev-component">
+          <PlaceDetails offer={offers[0]} />
+        </Route>
+      </Switch>
+    </Router>
   );
 
 };
