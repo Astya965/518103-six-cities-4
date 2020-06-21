@@ -1,5 +1,5 @@
 import React from "react";
-import {shallow} from "enzyme";
+import {mount} from "enzyme";
 
 import PlaceCard from "./place-card.jsx";
 import {testOffer} from "../../mocks/test-mocks.js";
@@ -15,7 +15,7 @@ describe(`PlaceCard tests`, () => {
   const handleCardPointerLeave = jest.fn();
 
   const renderComponent = (props = {}) => {
-    return shallow(
+    return mount(
         <PlaceCard offer={testOffer}
           onPlaceHeaderClick={onPlaceHeaderClick}
           handleCardPointerEnter = {handleCardPointerEnter}
@@ -30,6 +30,7 @@ describe(`PlaceCard tests`, () => {
 
     placeTitle.simulate(`click`);
     expect(onPlaceHeaderClick).toHaveBeenCalledTimes(1);
+    expect(onPlaceHeaderClick).toHaveBeenCalledWith(testOffer);
   });
 
   it(`Should get offer ID on pointer enter`, () => {
