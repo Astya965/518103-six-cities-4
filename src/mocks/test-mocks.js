@@ -8,6 +8,17 @@ export const testOffers = [
     rating: 4.8,
     type: `Apartment`,
     title: `Test name-1`,
+    images: [`img/apartment-01.jpg`, `img/apartment-02.jpg`],
+    bedrooms: 2,
+    maxAdults: 3,
+    goods: [`Heating`, `Kitchen`, `Frigde`, `Cable TV`, `Washing machine`, `Coffee machine`, `Dishwasher`],
+    host: {
+      avatarUrl: `img/avatar-max.jpg`,
+      id: `host-1`,
+      isPro: true,
+      name: `Maximum`,
+    },
+    description: [`A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam.`, `The building is green and from 18th century.`],
   },
   {
     id: `2`,
@@ -17,7 +28,18 @@ export const testOffers = [
     price: 250,
     rating: 2,
     type: `Room`,
-    title: `Test name-2`
+    title: `Test name-2`,
+    images: [`img/apartment-02.jpg`],
+    bedrooms: 1,
+    maxAdults: 1,
+    goods: [`Heating`, `Kitchen`, `Frigde`],
+    host: {
+      avatarUrl: `img/avatar-angelina.jpg`,
+      id: `host-3`,
+      isPro: false,
+      name: `Ellen`,
+    },
+    description: [`The house itself is surrounded by a gorgeous garden with many hidden lights that make the garden come to life at night.`],
   }
 ];
 
@@ -30,4 +52,15 @@ export const testOffer = {
   rating: 4.8,
   type: `Apartment`,
   title: `Test name-1`,
+  images: [`img/apartment-01.jpg`, `img/apartment-02.jpg`],
+  bedrooms: 2,
+  maxAdults: 3,
+  goods: [`Heating`, `Kitchen`, `Frigde`, `Cable TV`, `Washing machine`, `Coffee machine`, `Dishwasher`],
+  host: {
+    avatarUrl: `img/avatar-max.jpg`,
+    id: `host-1`,
+    isPro: true,
+    name: `Maximum`,
+  },
+  description: [`A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam.`, `The building is green and from 18th century.`],
 };
