@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import ReviewsList from "../reviews-list/reviews-list.jsx";
-import Map from "../map/map.jsx";
+import PlacesMap from "../places-map/places-map.jsx";
 import NearPlaces from "../near-places/near-places.jsx";
 import HostInfo from "../host-info/host-info.jsx";
 
@@ -96,7 +96,7 @@ const PlaceDetails = (props) => {
             <ReviewsList />
           </div>
         </div>
-        <Map />
+        <PlacesMap />
       </section>
       <NearPlaces />
     </main>

@@ -1,12 +1,12 @@
 import React from "react";
 import renderer from "react-test-renderer";
 
-import Map from "./map.jsx";
+import PlacesMap from "./places-map.jsx";
 
-it(`Render Map`, () => {
+it(`Render PlacesMap`, () => {
   const tree = renderer.
     create(
-        <Map />
+        <PlacesMap />
     ).toJSON();
 
   expect(tree).toMatchSnapshot();

@@ -1,10 +1,10 @@
 import React from "react";
 
-const Map = () => {
+const PlacesMap = () => {
 
   return (
     <section className="property__map map"></section>
   );
 };
 
-export default Map;
+export default PlacesMap;
