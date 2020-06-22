@@ -212,20 +212,20 @@ exports[`Render PlaceDetails 1`] = `
               Maximum
             </span>
           </div>
-          <div
-            className="property__description"
+        </div>
+        <div
+          className="property__description"
+        >
+          <p
+            className="property__text"
           >
-            <p
-              className="property__text"
-            >
-              A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam.
-            </p>
-            <p
-              className="property__text"
-            >
-              The building is green and from 18th century.
-            </p>
-          </div>
+            A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam.
+          </p>
+          <p
+            className="property__text"
+          >
+            The building is green and from 18th century.
+          </p>
         </div>
         <section
           className="property__reviews reviews"
