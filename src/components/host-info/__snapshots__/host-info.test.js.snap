@@ -1,12 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Render HostInfo 1`] = `
-Array [
+<div
+  className="property__host"
+>
   <h2
     className="property__host-title"
   >
     Meet the host
-  </h2>,
+  </h2>
   <div
     className="property__host-user user"
   >
@@ -26,6 +28,6 @@ Array [
     >
       Maximum
     </span>
-  </div>,
-]
+  </div>
+</div>
 `;

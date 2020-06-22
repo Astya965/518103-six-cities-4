@@ -8,7 +8,7 @@ const HostInfo = (props) => {
   const proClass = isPro ? `property__avatar-wrapper--pro` : ``;
 
   return (
-    <React.Fragment>
+    <div className="property__host">
       <h2 className="property__host-title">Meet the host</h2>
       <div className="property__host-user user">
         <div className={`property__avatar-wrapper ${proClass} user__avatar-wrapper`}>
@@ -18,7 +18,7 @@ const HostInfo = (props) => {
           {name}
         </span>
       </div>
-    </React.Fragment>
+    </div>
   );
 };
 
