@@ -1,5 +1,5 @@
 import shortid from "shortid";
-import {getRandomNumber, getRandomElement, getRandomBoolean, mixArray} from "../utils/utils.js";
+import {getRandomNumber, getRandomElement, getRandomBoolean, shuffleArray} from "../utils/utils.js";
 import {offerTypesMap, offerGoodsMap} from "../utils/constants.js";
 
 const OFFERS_COUNT = 4;
@@ -54,17 +54,17 @@ const generateOffer = () => {
     rating: getRandomNumber(0, 5),
     type: getRandomElement(types),
     title: getRandomElement(titles),
-    images: mixArray(photos).slice(getRandomNumber(0, 4)),
+    images: shuffleArray(photos).slice(getRandomNumber(0, 4)),
     bedrooms: getRandomNumber(1, 5),
     maxAdults: getRandomNumber(1, 10),
-    goods: mixArray(goods).slice(getRandomNumber(0, 7)),
+    goods: shuffleArray(goods).slice(getRandomNumber(0, 7)),
     host: {
       avatarUrl: getRandomElement(avatars),
       id: `host-${shortid.generate()}`,
       isPro: getRandomBoolean(),
       name: getRandomElement(names),
     },
-    description: mixArray(descriptions).slice(0, 2),
+    description: shuffleArray(descriptions).slice(0, 2),
   };
 };
 
