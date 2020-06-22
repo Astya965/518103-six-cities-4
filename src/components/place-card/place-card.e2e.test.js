@@ -1,5 +1,5 @@
 import React from "react";
-import {mount} from "enzyme";
+import {shallow} from "enzyme";
 
 import PlaceCard from "./place-card.jsx";
 import {testOffer} from "../../mocks/test-mocks.js";
@@ -15,7 +15,7 @@ describe(`PlaceCard tests`, () => {
   const handleCardPointerLeave = jest.fn();
 
   const renderComponent = (props = {}) => {
-    return mount(
+    return shallow(
         <PlaceCard offer={testOffer}
           onPlaceHeaderClick={onPlaceHeaderClick}
           handleCardPointerEnter = {handleCardPointerEnter}
