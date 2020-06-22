@@ -31,10 +31,6 @@ class App extends PureComponent {
   }
 
   _renderPlaceDetails() {
-    if (!this.state.currentOffer) {
-      return this._renderMain();
-    }
-
     return <PlaceDetails offer={this.state.currentOffer} />;
   }
 
@@ -48,6 +44,8 @@ class App extends PureComponent {
   }
 
   render() {
+    const {offers} = this.props;
+
     return (
       <Router>
         <Switch>
@@ -55,7 +53,7 @@ class App extends PureComponent {
             {this._renderScreen()}
           </Route>
           <Route exact path="/dev-component">
-            {this._renderPlaceDetails()}
+            <PlaceDetails offer={offers[0]} />
           </Route>
         </Switch>
       </Router>
