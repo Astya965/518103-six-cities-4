@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Render PlaceDetails 1`] = `
+exports[`Render HostInfo 1`] = `
 Array [
   <h2
     className="property__host-title"
