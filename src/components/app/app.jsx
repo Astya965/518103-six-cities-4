@@ -1,4 +1,4 @@
-import React, {PureComponent} from "react";
+import React, {Component} from "react";
 import PropTypes from "prop-types";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
@@ -6,7 +6,7 @@ import {offerShape} from "../../utils/prop-types.js";
 import Main from "../main/main.jsx";
 import PlaceDetails from "../place-details/place-details.jsx";
 
-class App extends PureComponent {
+class App extends Component {
   constructor(props) {
     super(props);
 

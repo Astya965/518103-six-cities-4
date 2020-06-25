@@ -1,10 +1,10 @@
-import React, {PureComponent} from "react";
+import React, {Component} from "react";
 import PropTypes from "prop-types";
 
 import {offerShape} from "../../utils/prop-types.js";
 import PlaceCard from "../place-card/place-card.jsx";
 
-class PlacesList extends PureComponent {
+class PlacesList extends Component {
   constructor(props) {
     super(props);
 
