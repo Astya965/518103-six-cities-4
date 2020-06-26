@@ -1,18 +1,24 @@
-import React from "react";
+import React, {Component} from "react";
 import PropTypes from "prop-types";
 
 import {VIEWMODES, ViewMode} from "../../utils/constants.js";
 import {offerShape} from "../../utils/prop-types.js";
 
-const PlacesMap = (props) => {
-  const {viewMode} = props;
-  const isNearViewMode = viewMode === ViewMode.PlaceDetails;
+export default class PlacesMap extends Component {
+  constructor(props) {
+    super(props);
+  }
 
-  return (
-    <section className={`${isNearViewMode ? `property__map` : `cities__map`} map`}>
-      <div id="map"></div>
-    </section>
-  );
+  render() {
+    const {viewMode} = props;
+    const isNearViewMode = viewMode === ViewMode.PlaceDetails;
+
+    return (
+      <section className={`${isNearViewMode ? `property__map` : `cities__map`} map`}>
+        <div id="map"></div>
+      </section>
+    );
+  }
 };
 
 PlacesMap.propTypes = {
