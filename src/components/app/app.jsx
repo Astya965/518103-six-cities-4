@@ -37,7 +37,7 @@ class App extends Component {
             }
           </Route>
           <Route exact path="/dev-component">
-            <PlaceDetails offer={offers[0]} />
+            <PlaceDetails offer={offers[0]} offers={offers}/>
           </Route>
         </Switch>
       </Router>
