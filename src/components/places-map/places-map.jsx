@@ -83,7 +83,7 @@ export default class PlacesMap extends Component {
       </section>
     );
   }
-};
+}
 
 PlacesMap.propTypes = {
   offers: PropTypes.arrayOf(PropTypes.shape(offerShape)).isRequired,
