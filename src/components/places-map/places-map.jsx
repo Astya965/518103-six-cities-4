@@ -11,10 +11,14 @@ export default class PlacesMap extends Component {
 
     this._mapRef = createRef();
     this._mapInstance = null;
+
+    this._markerTemplate = leaflet.icon({
+      iconUrl: `img/pin.svg`,
+      iconSize: [30, 30]
+    });
   }
 
   _initMap() {
-
   }
 
   componentDidMount() {
