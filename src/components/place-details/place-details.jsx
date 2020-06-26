@@ -8,9 +8,10 @@ import PlacesMap from "../places-map/places-map.jsx";
 import NearPlaces from "../near-places/near-places.jsx";
 
 import {offerShape} from "../../utils/prop-types.js";
+import {ViewMode} from "../../utils/constants.js";
 
 const PlaceDetails = (props) => {
-  const {offer} = props;
+  const {offer, offers} = props;
 
   return (
     <main className="page__main page__main--property">
@@ -22,7 +23,7 @@ const PlaceDetails = (props) => {
             <ReviewsList />
           </div>
         </div>
-        <PlacesMap />
+        <PlacesMap offers={offers} viewMode={ViewMode.PlaceDetails}/>
       </section>
       <NearPlaces />
     </main>
