@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import PropTypes from "prop-types";
+import leaflet from "leaflet";
 
 import {VIEWMODES, ViewMode} from "../../utils/constants.js";
 import {offerShape} from "../../utils/prop-types.js";
@@ -7,6 +8,8 @@ import {offerShape} from "../../utils/prop-types.js";
 export default class PlacesMap extends Component {
   constructor(props) {
     super(props);
+
+    this._mapRef = createRef();
   }
 
   render() {
@@ -15,7 +18,7 @@ export default class PlacesMap extends Component {
 
     return (
       <section className={`${isNearViewMode ? `property__map` : `cities__map`} map`}>
-        <div id="map"></div>
+        <div id="map" style={{height: `100%`}} ref={this._mapRef}></div>
       </section>
     );
   }
