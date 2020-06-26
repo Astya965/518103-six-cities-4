@@ -38,6 +38,21 @@ export default class PlacesMap extends Component {
     leaflet.tileLayer(`https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png`, {
       attribution: `&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>`
     }).addTo(this._mapInstance);
+
+    this._addMarkers(this.props.offers);
+  }
+
+  _addMarkers(offers) {
+    if (this._mapInstance) {
+      offers.forEach((offer) => {
+        this._addMarker(offer.location.latitude, offer.location.longitude);
+      });
+    }
+  }
+
+  _addMarker(latitude, longitude) {
+    const icon = this._markerTemplate;
+    leaflet.marker([latitude, longitude], {icon}).addTo(this._mapInstance);
   }
 
   componentDidMount() {
