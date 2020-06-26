@@ -17,3 +17,13 @@ export const offerGoodsMap = {
   cabelTV: `Cabel TV`,
   fridge: `Fridge`
 };
+
+export const ViewMode = {
+  Main: 0,
+  PlaceDetails: 1
+};
+
+export const VIEWMODES = [
+  ViewMode.Main,
+  ViewMode.PlaceDetails
+];
