@@ -10,6 +10,29 @@ export default class PlacesMap extends Component {
     super(props);
 
     this._mapRef = createRef();
+    this._mapInstance = null;
+  }
+
+  _initMap() {
+
+  }
+
+  componentDidMount() {
+    const {offers} = this.props;
+
+    if (offers.length > 0) {
+      this._initMap();
+    }
+  }
+
+  componentWillUnmount() {
+    this.destroy();
+
+  }
+
+  destroy() {
+    this._mapInstance.remove();
+    this._mapInstance = null;
   }
 
   render() {
