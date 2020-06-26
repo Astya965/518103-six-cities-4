@@ -77,8 +77,9 @@ const generateOffer = () => {
     location: getCoorginates(),
     city: {
       location: {
-        latitude: 52.370216,
-        longitude: 4.895168,
+        latitude: 52.38333,
+        longitude: 4.9,
+        zoom: 12
       },
       name: `Amsterdam`
     }
