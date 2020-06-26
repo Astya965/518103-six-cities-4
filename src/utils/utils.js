@@ -48,5 +48,5 @@ export const shuffleArray = (array) => {
  * @return {String} Рейтинг в процентах (от 0 до 100%)
  */
 export const getRatingPercentage = (rating) => {
-  return `${rating * 20}%`;
+  return `${Math.round(rating) * 20}%`;
 };

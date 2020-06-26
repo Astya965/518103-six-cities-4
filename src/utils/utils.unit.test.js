@@ -12,7 +12,12 @@ const testRatingMax = {
 
 const testRatingHalf = {
   value: 2.5,
-  percentage: `50%`
+  percentage: `60%`
+};
+
+const testRatingFraction = {
+  value: 1.1,
+  percentage: `20%`
 };
 
 describe(`getRatingPercentage tests`, () => {
@@ -31,6 +36,10 @@ describe(`getRatingPercentage tests`, () => {
 
   it(`Rating for 2.5`, () => {
     expect(getRatingPercentage(testRatingHalf.value)).toBe(testRatingHalf.percentage);
+  });
+
+  it(`Rating for 1.1`, () => {
+    expect(getRatingPercentage(testRatingFraction.value)).toBe(testRatingFraction.percentage);
   });
 
 });
