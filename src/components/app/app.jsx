@@ -23,26 +23,6 @@ class App extends Component {
     });
   }
 
-  _renderMain() {
-    const {offers} = this.props;
-
-    return <Main offers={offers}
-      placeHeaderClickHandler={this.placeHeaderClickHandler} />;
-  }
-
-  _renderPlaceDetails() {
-    return <PlaceDetails offer={this.state.currentOffer} />;
-  }
-
-  _renderScreen() {
-    if (this.state.currentOffer) {
-      return (
-        this._renderPlaceDetails()
-      );
-    }
-    return this._renderMain();
-  }
-
   render() {
     const {offers} = this.props;
 
@@ -50,7 +30,11 @@ class App extends Component {
       <Router>
         <Switch>
           <Route exact path="/">
-            {this._renderScreen()}
+            {this.state.currentOffer ?
+              <PlaceDetails offer={this.state.currentOffer} /> :
+              <Main offers={offers}
+                placeHeaderClickHandler={this.placeHeaderClickHandler} />
+            }
           </Route>
           <Route exact path="/dev-component">
             <PlaceDetails offer={offers[0]} />
