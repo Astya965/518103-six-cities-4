@@ -31,7 +31,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/">
             {this.state.currentOffer ?
-              <PlaceDetails offer={this.state.currentOffer} /> :
+              <PlaceDetails offer={this.state.currentOffer} offers={offers}/> :
               <Main offers={offers}
                 placeHeaderClickHandler={this.placeHeaderClickHandler} />
             }
