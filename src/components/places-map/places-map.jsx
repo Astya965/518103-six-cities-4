@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, {Component, createRef} from "react";
 import PropTypes from "prop-types";
 import leaflet from "leaflet";
 
@@ -19,6 +19,21 @@ export default class PlacesMap extends Component {
   }
 
   _initMap() {
+    if (!this._mapRef || !this._mapRef.current) {
+      return;
+    }
+
+    const {latitude, longitude, zoom} = this.props.offers[0].city.location;
+
+    const mapSettings = {
+      center: [latitude, longitude],
+      zoom,
+      zoomControl: false,
+      marker: true
+    };
+
+    this._mapInstance = leaflet.map(this._mapRef.current, mapSettings);
+    this._mapInstance.setView([latitude, longitude], zoom);
   }
 
   componentDidMount() {
@@ -40,7 +55,7 @@ export default class PlacesMap extends Component {
   }
 
   render() {
-    const {viewMode} = props;
+    const {viewMode} = this.props;
     const isNearViewMode = viewMode === ViewMode.PlaceDetails;
 
     return (
@@ -54,6 +69,4 @@ export default class PlacesMap extends Component {
 PlacesMap.propTypes = {
   offers: PropTypes.arrayOf(PropTypes.shape(offerShape)).isRequired,
   viewMode: PropTypes.oneOf(VIEWMODES).isRequired,
-}
-
-export default PlacesMap;
+};
