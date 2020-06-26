@@ -31,6 +31,7 @@ const PlaceDetails = (props) => {
 };
 
 PlaceDetails.propTypes = {
+  offers: PropTypes.arrayOf(PropTypes.shape(offerShape)).isRequired,
   offer: PropTypes.shape(offerShape).isRequired,
 };
 
