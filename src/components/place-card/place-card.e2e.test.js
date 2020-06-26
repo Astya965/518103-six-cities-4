@@ -30,6 +30,7 @@ describe(`PlaceCard tests`, () => {
 
     placeTitle.simulate(`click`);
     expect(onPlaceHeaderClick).toHaveBeenCalledTimes(1);
+    expect(onPlaceHeaderClick).toHaveBeenCalledWith(testOffer);
   });
 
   it(`Should get offer ID on pointer enter`, () => {

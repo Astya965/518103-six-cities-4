@@ -48,7 +48,9 @@ const PlaceCard = (props) => {
           </div>
         </div>
         <h2 className="place-card__name">
-          <a href="#" onClick={onPlaceHeaderClick}>{title}</a>
+          <a href="#" onClick={() => {
+            onPlaceHeaderClick(offer);
+          }}>{title}</a>
         </h2>
         <p className="place-card__type">{type}</p>
       </div>

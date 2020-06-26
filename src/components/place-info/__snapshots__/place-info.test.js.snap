@@ -1,0 +1,194 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Render PlaceInfo 1`] = `
+Array [
+  <div
+    className="property__mark"
+  >
+    <span>
+      Premium
+    </span>
+  </div>,
+  <div
+    className="property__name-wrapper"
+  >
+    <h1
+      className="property__name"
+    >
+      Test name-1
+    </h1>
+    <button
+      className="property__bookmark-button button property__bookmark-button--active"
+      type="button"
+    >
+      <svg
+        className="property__bookmark-icon"
+        height="33"
+        width="31"
+      >
+        <use
+          xlinkHref="#icon-bookmark"
+        />
+      </svg>
+      <span
+        className="visually-hidden"
+      >
+        To bookmarks
+      </span>
+    </button>
+  </div>,
+  <div
+    className="property__rating rating"
+  >
+    <div
+      className="property__stars rating__stars"
+    >
+      <span
+        style={
+          Object {
+            "width": "100%",
+          }
+        }
+      />
+      <span
+        className="visually-hidden"
+      >
+        Rating
+      </span>
+    </div>
+    <span
+      className="property__rating-value rating__value"
+    >
+      4.8
+    </span>
+  </div>,
+  <ul
+    className="property__features"
+  >
+    <li
+      className="property__feature property__feature--entire"
+    >
+      Apartment
+    </li>
+    <li
+      className="property__feature property__feature--bedrooms"
+    >
+      2
+       Bedrooms
+    </li>
+    <li
+      className="property__feature property__feature--adults"
+    >
+      Max 
+      3
+       adults
+    </li>
+  </ul>,
+  <div
+    className="property__price"
+  >
+    <b
+      className="property__price-value"
+    >
+      €
+      55
+    </b>
+    <span
+      className="property__price-text"
+    >
+       night
+    </span>
+  </div>,
+  <div
+    className="property__inside"
+  >
+    <h2
+      className="property__inside-title"
+    >
+      What's inside
+    </h2>
+    <ul
+      className="property__inside-list"
+    >
+      <li
+        className="property__inside-item"
+      >
+        Heating
+      </li>
+      <li
+        className="property__inside-item"
+      >
+        Kitchen
+      </li>
+      <li
+        className="property__inside-item"
+      >
+        Frigde
+      </li>
+      <li
+        className="property__inside-item"
+      >
+        Cable TV
+      </li>
+      <li
+        className="property__inside-item"
+      >
+        Washing machine
+      </li>
+      <li
+        className="property__inside-item"
+      >
+        Coffee machine
+      </li>
+      <li
+        className="property__inside-item"
+      >
+        Dishwasher
+      </li>
+    </ul>
+  </div>,
+  <div
+    className="property__host"
+  >
+    <h2
+      className="property__host-title"
+    >
+      Meet the host
+    </h2>
+    <div
+      className="property__host-user user"
+    >
+      <div
+        className="property__avatar-wrapper property__avatar-wrapper--pro user__avatar-wrapper"
+      >
+        <img
+          alt="Host avatar"
+          className="property__avatar user__avatar"
+          height="74"
+          src="img/avatar-max.jpg"
+          width="74"
+        />
+      </div>
+      <span
+        className="property__user-name"
+      >
+        Maximum
+      </span>
+    </div>
+  </div>,
+  <div
+    className="property__description"
+  >
+    <p
+      className="property__text"
+    >
+      A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam.
+    </p>
+    <p
+      className="property__text"
+    >
+      The building is green and from 18th century.
+    </p>
+  </div>,
+]
+`;
