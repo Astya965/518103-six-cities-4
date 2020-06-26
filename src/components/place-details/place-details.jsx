@@ -12,6 +12,9 @@ import {ViewMode} from "../../utils/constants.js";
 
 const PlaceDetails = (props) => {
   const {offer, offers} = props;
+  const nearOffers = offers.filter((item) => {
+    return offer.id !== item.id;
+  });
 
   return (
     <main className="page__main page__main--property">
@@ -23,7 +26,7 @@ const PlaceDetails = (props) => {
             <ReviewsList />
           </div>
         </div>
-        <PlacesMap offers={offers} viewMode={ViewMode.PlaceDetails}/>
+        <PlacesMap offers={nearOffers} viewMode={ViewMode.PlaceDetails}/>
       </section>
       <NearPlaces />
     </main>
