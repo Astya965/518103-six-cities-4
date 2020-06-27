@@ -1,6 +1,9 @@
 export const MAX_REVIEWS_COUNT = 10;
+<<<<<<< HEAD
 export const MAX_NEAR_OFFERS_COUNT = 3;
 export const MAX_IMAGES_COUNT = 6;
+=======
+>>>>>>> feat(4-2): limit the number of comments displayed
 
 export const offerTypesMap = {
   apartment: `Apartment`,
