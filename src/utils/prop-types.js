@@ -21,3 +21,16 @@ export const offerShape = {
     name: PropTypes.string.isRequired,
   }).isRequired,
 };
+
+export const reviewShape = {
+  comment: PropTypes.string.isRequired,
+  date: PropTypes.string.number,
+  id: PropTypes.string.isRequired,
+  rating: PropTypes.number.isRequired,
+  user: PropTypes.shape({
+    avatarUrl: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
+    isPro: PropTypes.bool.isRequired,
+    name: PropTypes.string.isRequired,
+  }).isRequired
+};
