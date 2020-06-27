@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import PropTypes from "prop-types";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
-import {offerShape} from "../../utils/prop-types.js";
+import {offerShape, reviewShape} from "../../utils/prop-types.js";
 import Main from "../main/main.jsx";
 import PlaceDetails from "../place-details/place-details.jsx";
 
@@ -24,20 +24,21 @@ class App extends Component {
   }
 
   render() {
-    const {offers} = this.props;
+    const {offers, reviews} = this.props;
 
     return (
       <Router>
         <Switch>
           <Route exact path="/">
             {this.state.currentOffer ?
-              <PlaceDetails offer={this.state.currentOffer} offers={offers}/> :
+              <PlaceDetails offer={this.state.currentOffer} offers={offers}
+                reviews={reviews} /> :
               <Main offers={offers}
                 placeHeaderClickHandler={this.placeHeaderClickHandler} />
             }
           </Route>
           <Route exact path="/dev-component">
-            <PlaceDetails offer={offers[0]} offers={offers}/>
+            <PlaceDetails offer={offers[0]} offers={offers} reviews={reviews} />
           </Route>
         </Switch>
       </Router>
@@ -47,6 +48,7 @@ class App extends Component {
 
 App.propTypes = {
   offers: PropTypes.arrayOf(PropTypes.shape(offerShape)).isRequired,
+  reviews: PropTypes.arrayOf(PropTypes.shape(reviewShape)).isRequired,
 };
 
 export default App;
