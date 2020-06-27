@@ -32,7 +32,7 @@ const getRandomDate = () => {
 
 /**
  * Генерация моков для отзыва
- * @return {Object} Данные для отзывов
+ * @return {Object} Данные для отзыва
  */
 const genrateComment = () => {
   return {
@@ -50,9 +50,9 @@ const genrateComment = () => {
 };
 
 /**
- * Генерация массива предложений
- * @param {Number} count - Нужное число точек
- * @return {Array} Массив предложений
+ * Генерация массива отзывов
+ * @param {Number} count - Нужное число отзывов
+ * @return {Array} Массив отзывов
  */
 const generateComments = (count) => {
   return new Array(count)
