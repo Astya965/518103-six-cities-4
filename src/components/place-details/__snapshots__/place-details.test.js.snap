@@ -237,7 +237,7 @@ exports[`Render PlaceDetails 1`] = `
             <span
               className="reviews__amount"
             >
-              1
+              3
             </span>
           </h2>
           <ul
