@@ -4,9 +4,10 @@ import shortid from "shortid";
 const COMMENTS_COUNT = 3;
 
 /**
- * 1483228800 = Jan 01 2017
+ * 31556926 секунд = 1 году
+ * 1000 миллисекунд = 1 секунда
  */
-const MIN_DATE = 1483228800;
+const MIN_DATE = Date.now() - 31556926 * 1000 * 2;
 
 const MAX_DATE = Date.now();
 
