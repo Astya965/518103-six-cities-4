@@ -3,7 +3,7 @@ import renderer from "react-test-renderer";
 
 import PlacesMap from "./places-map.jsx";
 
-import {testOffers} from "../../mocks/test-mocks.js";
+import {testOffers, testOffer} from "../../mocks/test-mocks.js";
 import {ViewMode} from "../../utils/constants.js";
 
 describe(`Render PlacesMap`, () => {
