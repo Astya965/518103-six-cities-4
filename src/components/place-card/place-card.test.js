@@ -8,6 +8,7 @@ it(`Render PlaceCard`, () => {
   const tree = renderer.
     create(
         <PlaceCard offer={testOffer}
+          isMainView={true}
           onPlaceHeaderClick={() => {}}
           handleCardPointerEnter = {() => {}}
           handleCardPointerLeave = {() => {}}

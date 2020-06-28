@@ -17,6 +17,7 @@ describe(`PlaceCard tests`, () => {
   const renderComponent = (props = {}) => {
     return shallow(
         <PlaceCard offer={testOffer}
+          isMainView={true}
           onPlaceHeaderClick={onPlaceHeaderClick}
           handleCardPointerEnter = {handleCardPointerEnter}
           handleCardPointerLeave = {handleCardPointerLeave}

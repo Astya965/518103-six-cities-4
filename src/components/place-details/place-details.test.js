@@ -7,7 +7,11 @@ import {testOffer, testOffers, testReviews} from "../../mocks/test-mocks.js";
 it(`Render PlaceDetails`, () => {
   const tree = renderer.
     create(
-        <PlaceDetails offer={testOffer} offers={testOffers} reviews={testReviews} />
+        <PlaceDetails
+          offer={testOffer}
+          offers={testOffers}
+          reviews={testReviews}
+          placeHeaderClickHandler={() => {}} />
     ).toJSON();
 
   expect(tree).toMatchSnapshot();
