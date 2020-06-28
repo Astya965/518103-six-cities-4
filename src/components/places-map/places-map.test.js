@@ -6,11 +6,22 @@ import PlacesMap from "./places-map.jsx";
 import {testOffers} from "../../mocks/test-mocks.js";
 import {ViewMode} from "../../utils/constants.js";
 
-it(`Render PlacesMap`, () => {
-  const tree = renderer.
+describe(`Render PlacesMap`, () => {
+  it(`Render PlacesMap with ViewMode.Main`, () => {
+    const tree = renderer.
     create(
         <PlacesMap offers={testOffers} viewMode={ViewMode.Main}/>
     ).toJSON();
 
-  expect(tree).toMatchSnapshot();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it(`Render PlacesMap with ViewMode.PlaceDetails`, () => {
+    const tree = renderer.
+    create(
+        <PlacesMap offers={testOffers} viewMode={ViewMode.PlaceDetails} activeOffer={testOffer} />
+    ).toJSON();
+
+    expect(tree).toMatchSnapshot();
+  });
 });
