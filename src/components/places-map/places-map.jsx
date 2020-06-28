@@ -12,10 +12,7 @@ export default class PlacesMap extends Component {
     this._mapRef = createRef();
     this._mapInstance = null;
 
-    this._markerTemplate = leaflet.icon({
-      iconUrl: `img/pin.svg`,
-      iconSize: [30, 30]
-    });
+    this._markers = [];
   }
 
   _initMap() {
@@ -43,16 +40,39 @@ export default class PlacesMap extends Component {
   }
 
   _addMarkers(offers) {
+    const {activeOffer} = this.props;
+
     if (this._mapInstance) {
       offers.forEach((offer) => {
-        this._addMarker(offer.location.latitude, offer.location.longitude);
+        this._addMarker(offer.location.latitude, offer.location.longitude, false);
       });
+    }
+
+    if (this._mapInstance && activeOffer !== null) {
+      this._addMarker(activeOffer.location.latitude, activeOffer.location.longitude, true);
     }
   }
 
-  _addMarker(latitude, longitude) {
-    const icon = this._markerTemplate;
-    leaflet.marker([latitude, longitude], {icon}).addTo(this._mapInstance);
+  _addMarker(latitude, longitude, isActive) {
+    const icon = this._getMarkerTemplate(isActive);
+    const marker = leaflet.marker([latitude, longitude], {icon}).addTo(this._mapInstance);
+    this._markers.push(marker);
+  }
+
+  _getMarkerTemplate(isActive) {
+    return leaflet.icon({
+      iconUrl: isActive ? `img/pin-active.svg` : `img/pin.svg`,
+      iconSize: [30, 30]
+    });
+  }
+
+  _clearMarkers() {
+    if (this._mapInstance !== null) {
+      this._markers.forEach((marker) => {
+        this._mapInstance.removeLayer(marker);
+      });
+    }
+    this._markers = [];
   }
 
   componentDidMount() {
@@ -60,6 +80,16 @@ export default class PlacesMap extends Component {
 
     if (offers.length > 0) {
       this._initMap();
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    const {activeOffer: prevActiveOffer} = prevProps;
+    const {activeOffer} = this.props;
+
+    if (prevActiveOffer.id !== activeOffer.id) {
+      this._clearMarkers();
+      this._addMarkers(this.props.offers);
     }
   }
 
@@ -85,7 +115,12 @@ export default class PlacesMap extends Component {
   }
 }
 
+PlacesMap.defaultProps = {
+  activeOffer: null
+};
+
 PlacesMap.propTypes = {
   offers: PropTypes.arrayOf(PropTypes.shape(offerShape)).isRequired,
   viewMode: PropTypes.oneOf(VIEWMODES).isRequired,
+  activeOffer: PropTypes.shape(offerShape),
 };

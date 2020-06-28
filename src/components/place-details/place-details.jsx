@@ -27,7 +27,7 @@ const PlaceDetails = (props) => {
             <ReviewsList reviews={reviews}/>
           </div>
         </div>
-        <PlacesMap offers={nearOffers} viewMode={ViewMode.PlaceDetails}/>
+        <PlacesMap offers={nearOffers} activeOffer={offer} viewMode={ViewMode.PlaceDetails}/>
       </section>
       <NearPlaces offers={nearOffers} viewMode={ViewMode.PlaceDetails} placeHeaderClickHandler={placeHeaderClickHandler}/>
     </main>

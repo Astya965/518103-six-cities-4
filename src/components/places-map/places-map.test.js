@@ -10,7 +10,7 @@ describe(`Render PlacesMap`, () => {
   it(`Render PlacesMap with ViewMode.Main`, () => {
     const tree = renderer.
     create(
-        <PlacesMap offers={testOffers} viewMode={ViewMode.Main}/>
+        <PlacesMap offers={testOffers} viewMode={ViewMode.Main} activeOffer={testOffer} />
     ).toJSON();
 
     expect(tree).toMatchSnapshot();
