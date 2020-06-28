@@ -5,12 +5,12 @@ import {offerShape} from "../../utils/prop-types.js";
 import {getRatingPercentage} from "../../utils/utils.js";
 
 const PlaceCard = (props) => {
-  const {offer, onPlaceHeaderClick, handleCardPointerEnter, handleCardPointerLeave} = props;
+  const {offer, isMainView, onPlaceHeaderClick, handleCardPointerEnter, handleCardPointerLeave} = props;
   const {isPremium, isFavourite, previewImage, price, rating, type, title} = offer;
   const favouriteClass = isFavourite ? `place-card__bookmark-button--active` : ``;
 
   return (
-    <article className="cities__place-card place-card"
+    <article className={`${isMainView ? `cities__place-card` : `near-places__card`} place-card`}
       onPointerEnter={() => {
         handleCardPointerEnter(offer);
       }}
@@ -23,7 +23,7 @@ const PlaceCard = (props) => {
           <span>Premium</span>
         </div> : ``}
 
-      <div className="cities__image-wrapper place-card__image-wrapper">
+      <div className={`${isMainView ? `cities__image-wrapper` : `near-places__image-wrapper`} place-card__image-wrapper`}>
         <a href="#">
           <img className="place-card__image" src={previewImage} width="260" height="200" alt="Place image"/>
         </a>
@@ -60,6 +60,7 @@ const PlaceCard = (props) => {
 
 PlaceCard.propTypes = {
   offer: PropTypes.shape(offerShape).isRequired,
+  isMainView: PropTypes.bool.isRequired,
   onPlaceHeaderClick: PropTypes.func.isRequired,
   handleCardPointerEnter: PropTypes.func.isRequired,
   handleCardPointerLeave: PropTypes.func.isRequired,
