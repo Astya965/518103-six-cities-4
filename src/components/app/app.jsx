@@ -32,13 +32,16 @@ class App extends Component {
           <Route exact path="/">
             {this.state.currentOffer ?
               <PlaceDetails offer={this.state.currentOffer} offers={offers}
-                reviews={reviews} /> :
+                reviews={reviews}
+                placeHeaderClickHandler={this.placeHeaderClickHandler} /> :
               <Main offers={offers}
                 placeHeaderClickHandler={this.placeHeaderClickHandler} />
             }
           </Route>
           <Route exact path="/dev-component">
-            <PlaceDetails offer={offers[0]} offers={offers} reviews={reviews} />
+            <PlaceDetails offer={offers[0]} offers={offers}
+              reviews={reviews}
+              placeHeaderClickHandler={this.placeHeaderClickHandler} />
           </Route>
         </Switch>
       </Router>

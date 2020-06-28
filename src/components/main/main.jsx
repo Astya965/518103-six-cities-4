@@ -94,6 +94,7 @@ const Main = (props) => {
                 </ul>
               </form>
               <PlacesList offers={offers}
+                viewMode={ViewMode.Main}
                 placeHeaderClickHandler={placeHeaderClickHandler} />
             </section>
             <div className="cities__right-section">
