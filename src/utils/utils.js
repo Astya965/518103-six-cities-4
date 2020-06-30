@@ -60,13 +60,12 @@ export const memoize = (fn) => {
   let cache = {};
   return (...args) => {
     let n = args[0];
-   if (n in cache) {
+    if (n in cache) {
       return cache[n];
-    }
-    else {
+    } else {
       let result = fn(n);
       cache[n] = result;
       return result;
     }
-  }
-}
+  };
+};
