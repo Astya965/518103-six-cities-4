@@ -9,12 +9,12 @@ import NearPlaces from "../near-places/near-places.jsx";
 
 import {offerShape} from "../../utils/prop-types.js";
 import {ViewMode} from "../../utils/constants.js";
+import {memoize} from "../../utils/utils.js";
 
 const PlaceDetails = (props) => {
   const {offer, offers} = props;
-  const nearOffers = offers.filter((item) => {
-    return offer.id !== item.id;
-  });
+  const filterOffers = memoize((id) => offers.filter((item) => item.id !== id));
+  const nearOffers = filterOffers(offer.id);
 
   return (
     <main className="page__main page__main--property">

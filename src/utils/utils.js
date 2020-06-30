@@ -50,3 +50,23 @@ export const shuffleArray = (array) => {
 export const getRatingPercentage = (rating) => {
   return `${Math.round(rating) * 20}%`;
 };
+
+/**
+ * Мемоизация функции
+ * @param {func} fn - Функция, которую надо мемоизировать
+ * @return {func} Мемоизированная функция
+ */
+export const memoize = (fn) => {
+  let cache = {};
+  return (...args) => {
+    let n = args[0];
+   if (n in cache) {
+      return cache[n];
+    }
+    else {
+      let result = fn(n);
+      cache[n] = result;
+      return result;
+    }
+  }
+}
