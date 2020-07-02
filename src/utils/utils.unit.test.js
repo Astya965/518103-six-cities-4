@@ -1,4 +1,5 @@
 import {getRatingPercentage} from "./utils.js";
+import {memoize} from "./utils.js";
 
 const testRatingMin = {
   value: 0,
@@ -19,6 +20,10 @@ const testRatingFraction = {
   value: 1.1,
   percentage: `20%`
 };
+
+const testMemoize = memoize((arr) => arr.map((item) => item));
+const testArr1 = [1, 2, 3];
+const testArr2 = [4, 5, 6];
 
 describe(`getRatingPercentage tests`, () => {
 
@@ -42,4 +47,19 @@ describe(`getRatingPercentage tests`, () => {
     expect(getRatingPercentage(testRatingFraction.value)).toBe(testRatingFraction.percentage);
   });
 
+});
+
+describe((`memoize tests`), () => {
+
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
+
+  it(`Same arrays are equel`, () => {
+    expect(testMemoize(testArr1)).toBe(testMemoize(testArr1));
+  });
+
+  it(`Different arrays are not equel`, () => {
+    expect(testMemoize(testArr1)).not.toBe(testMemoize(testArr2));
+  });
 });
