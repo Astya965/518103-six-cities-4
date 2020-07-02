@@ -16,5 +16,5 @@ export const formatReverseDate = (date) => {
  * @return {String} Дата события в формате MMMM DD YYYY
  */
 export const formatMonthDay = (date) => {
-  return format(date, `MMMM	 dd, yyyy`);
+  return format(date, `MMMM dd, yyyy`);
 };
