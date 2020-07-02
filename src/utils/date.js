@@ -1,4 +1,4 @@
-import moment from "moment";
+import format from 'date-fns/format';
 
 /**
  * Получение времени на основе даты в формате YYYY-MM-DD
@@ -6,7 +6,7 @@ import moment from "moment";
  * @return {String} Дата события в формате YYYY-MM-DD
  */
 export const formatReverseDate = (date) => {
-  return moment(date).format(`YYYY-MM-DD`);
+  return format(date, `yyyy-MM-dd`);
 };
 
 /**
@@ -16,5 +16,5 @@ export const formatReverseDate = (date) => {
  * @return {String} Дата события в формате MMMM DD YYYY
  */
 export const formatMonthDay = (date) => {
-  return moment(date).format(`MMMM DD, YYYY`);
+  return format(date, `MMMM	 dd, yyyy`);
 };

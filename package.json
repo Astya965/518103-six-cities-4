@@ -22,7 +22,6 @@
     "eslint-config-htmlacademy": "0.5.2",
     "eslint-plugin-react": "7.20.0",
     "jest": "26.0.1",
-    "moment-locales-webpack-plugin": "^1.2.0",
     "react-test-renderer": "16.13.1",
     "set-tz": "0.2.0",
     "shortid": "2.2.15",
@@ -34,8 +33,8 @@
     "node": "10"
   },
   "dependencies": {
+    "date-fns": "^2.14.0",
     "leaflet": "1.6.0",
-    "moment": "2.27.0",
     "prop-types": "15.7.2",
     "react": "16.13.1",
     "react-dom": "16.13.1",
@@ -43,7 +42,8 @@
   },
   "jest": {
     "setupFilesAfterEnv": [
-      "./jest.setup.js", "set-tz/utc"
+      "./jest.setup.js",
+      "set-tz/utc"
     ]
   }
 }
