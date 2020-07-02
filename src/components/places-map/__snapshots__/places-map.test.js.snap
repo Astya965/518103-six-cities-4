@@ -1,7 +1,31 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Render PlacesMap 1`] = `
+exports[`Render PlacesMap Render PlacesMap with ViewMode.Main 1`] = `
+<section
+  className="cities__map map"
+>
+  <div
+    id="map"
+    style={
+      Object {
+        "height": "100%",
+      }
+    }
+  />
+</section>
+`;
+
+exports[`Render PlacesMap Render PlacesMap with ViewMode.PlaceDetails 1`] = `
 <section
   className="property__map map"
-/>
+>
+  <div
+    id="map"
+    style={
+      Object {
+        "height": "100%",
+      }
+    }
+  />
+</section>
 `;

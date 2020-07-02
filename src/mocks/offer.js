@@ -39,6 +39,15 @@ const names = [`Anna`, `Lina`, `Simon`, `Alice`, `Mary`, `Max`, `Alex`];
 
 const avatars = [`img/avatar-angelina.jpg`, `img/avatar-max.jpg`];
 
+const coordinates = [[52.3909553943508, 4.85309666406198], [52.369553943508, 4.85309666406198], [52.3909553943508, 4.929309666406198], [52.3809553943508, 4.939309666406198]];
+
+const getCoorginates = () => {
+  const [latitude, longitude] = getRandomElement(coordinates);
+  return {
+    latitude,
+    longitude
+  };
+};
 
 /**
  * Генерация моков для предложения
@@ -65,6 +74,15 @@ const generateOffer = () => {
       name: getRandomElement(names),
     },
     description: shuffleArray(descriptions).slice(0, 2),
+    location: getCoorginates(),
+    city: {
+      location: {
+        latitude: 52.38333,
+        longitude: 4.9,
+        zoom: 12
+      },
+      name: `Amsterdam`
+    }
   };
 };
 

@@ -19,6 +19,18 @@ export const testOffers = [
       name: `Maximum`,
     },
     description: [`A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam.`, `The building is green and from 18th century.`],
+    location: {
+      latitude: 52.3909553943508,
+      longitude: 4.85309666406198,
+    },
+    city: {
+      location: {
+        latitude: 52.38333,
+        longitude: 4.9,
+        zoom: 12
+      },
+      name: `Amsterdam`
+    }
   },
   {
     id: `2`,
@@ -40,6 +52,18 @@ export const testOffers = [
       name: `Ellen`,
     },
     description: [`The house itself is surrounded by a gorgeous garden with many hidden lights that make the garden come to life at night.`],
+    location: {
+      latitude: 52.369553943508,
+      longitude: 4.929309666406198,
+    },
+    city: {
+      location: {
+        latitude: 52.38333,
+        longitude: 4.9,
+        zoom: 12
+      },
+      name: `Amsterdam`
+    }
   }
 ];
 
@@ -63,4 +87,16 @@ export const testOffer = {
     name: `Maximum`,
   },
   description: [`A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam.`, `The building is green and from 18th century.`],
+  location: {
+    latitude: 52.3909553943508,
+    longitude: 4.85309666406198,
+  },
+  city: {
+    location: {
+      latitude: 52.38333,
+      longitude: 4.9,
+      zoom: 12
+    },
+    name: `Amsterdam`
+  }
 };

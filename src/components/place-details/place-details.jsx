@@ -8,9 +8,13 @@ import PlacesMap from "../places-map/places-map.jsx";
 import NearPlaces from "../near-places/near-places.jsx";
 
 import {offerShape} from "../../utils/prop-types.js";
+import {ViewMode} from "../../utils/constants.js";
+import {memoize} from "../../utils/utils.js";
 
 const PlaceDetails = (props) => {
-  const {offer} = props;
+  const {offer, offers} = props;
+  const filterOffers = memoize((id) => offers.filter((item) => item.id !== id));
+  const nearOffers = filterOffers(offer.id);
 
   return (
     <main className="page__main page__main--property">
@@ -22,7 +26,7 @@ const PlaceDetails = (props) => {
             <ReviewsList />
           </div>
         </div>
-        <PlacesMap />
+        <PlacesMap offers={nearOffers} viewMode={ViewMode.PlaceDetails}/>
       </section>
       <NearPlaces />
     </main>
@@ -30,6 +34,7 @@ const PlaceDetails = (props) => {
 };
 
 PlaceDetails.propTypes = {
+  offers: PropTypes.arrayOf(PropTypes.shape(offerShape)).isRequired,
   offer: PropTypes.shape(offerShape).isRequired,
 };
 

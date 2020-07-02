@@ -31,13 +31,13 @@ class App extends Component {
         <Switch>
           <Route exact path="/">
             {this.state.currentOffer ?
-              <PlaceDetails offer={this.state.currentOffer} /> :
+              <PlaceDetails offer={this.state.currentOffer} offers={offers}/> :
               <Main offers={offers}
                 placeHeaderClickHandler={this.placeHeaderClickHandler} />
             }
           </Route>
           <Route exact path="/dev-component">
-            <PlaceDetails offer={offers[0]} />
+            <PlaceDetails offer={offers[0]} offers={offers}/>
           </Route>
         </Switch>
       </Router>

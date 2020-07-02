@@ -2,6 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import {offerShape} from "../../utils/prop-types.js";
+import {ViewMode} from "../../utils/constants.js";
+
+import PlacesMap from "../places-map/places-map.jsx";
 import PlacesList from "../places-list/places-list.jsx";
 
 const Main = (props) => {
@@ -94,7 +97,7 @@ const Main = (props) => {
                 placeHeaderClickHandler={placeHeaderClickHandler} />
             </section>
             <div className="cities__right-section">
-              <section className="cities__map map"></section>
+              <PlacesMap offers={offers} viewMode={ViewMode.Main}/>
             </div>
           </div>
         </div>
