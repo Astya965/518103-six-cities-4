@@ -8,7 +8,7 @@
     "start": "webpack-dev-server",
     "eslint": "eslint --ext .jsx --ext .js src/",
     "test": "npm run eslint && npm run test.jest",
-    "test.jest": "TZ=UTC jest"
+    "test.jest": "jest"
   },
   "devDependencies": {
     "@babel/core": "7.10.2",
@@ -24,6 +24,7 @@
     "jest": "26.0.1",
     "moment-locales-webpack-plugin": "^1.2.0",
     "react-test-renderer": "16.13.1",
+    "set-tz": "0.2.0",
     "shortid": "2.2.15",
     "webpack": "4.43.0",
     "webpack-cli": "3.3.11",
@@ -42,7 +43,7 @@
   },
   "jest": {
     "setupFilesAfterEnv": [
-      "./jest.setup.js"
+      "./jest.setup.js", "set-tz/utc"
     ]
   }
 }
