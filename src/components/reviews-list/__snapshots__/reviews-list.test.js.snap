@@ -70,9 +70,9 @@ exports[`Render ReviewsList 1`] = `
         </p>
         <time
           className="reviews__time"
-          dateTime="2010-04-28"
+          dateTime="2010-04-27"
         >
-          April 28, 2010
+          April 27, 2010
         </time>
       </div>
     </li>
