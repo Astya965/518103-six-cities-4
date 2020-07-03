@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import {reviewShape} from "../../utils/prop-types.js";
-import {MAX_REVIEWS_COUNT} from "../../utils/constants.js";
 
 import ReviewForm from "../review-form/review-form.jsx";
 import Review from "../review/review.jsx";
@@ -15,7 +14,6 @@ const ReviewsList = (props) => {
       <h2 className="reviews__title">Reviews &middot; <span className="reviews__amount">{reviews.length}</span></h2>
       <ul className="reviews__list">
         {reviews
-          .slice(0, MAX_REVIEWS_COUNT)
           .map((review) => {
             return <Review key={review.id} review={review} />;
           })}

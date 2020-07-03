@@ -16,15 +16,18 @@ const PlaceDetails = (props) => {
   const {offer, offers, reviews, placeHeaderClickHandler} = props;
   const memorizedOffers = memoize((id) => offers.filter((item) => item.id !== id).slice(0, MAX_NEAR_OFFERS_COUNT));
   const nearOffers = memorizedOffers(offer.id);
+  const memorizedSlicedArray = memoize((array, max) => array.slice(0, max));
+  const slicedImages = memorizedSlicedArray(offer.images, MAX_IMAGES_COUNT);
+  const slicedReviews = memorizedSlicedArray(reviews, MAX_REVIEWS_COUNT);
 
   return (
     <main className="page__main page__main--property">
       <section className="property">
-        <PlaceGallery images={offer.images.slice(0, MAX_IMAGES_COUNT)} />
+        <PlaceGallery images={slicedImages} />
         <div className="property__container container">
           <div className="property__wrapper">
             <PlaceInfo offer={offer}/>
-            <ReviewsList reviews={reviews}/>
+            <ReviewsList reviews={slicedReviews}/>
           </div>
         </div>
         <PlacesMap offers={nearOffers} activeOffer={offer} viewMode={ViewMode.PlaceDetails}/>
