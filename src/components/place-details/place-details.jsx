@@ -8,6 +8,7 @@ import PlacesMap from "../places-map/places-map.jsx";
 import NearPlaces from "../near-places/near-places.jsx";
 
 import {offerShape, reviewShape} from "../../utils/prop-types.js";
+import {memoize} from "../../utils/utils.js";
 import {MAX_NEAR_OFFERS_COUNT, MAX_IMAGES_COUNT, ViewMode} from "../../utils/constants.js";
 import {memoize} from "../../utils/utils.js";
 
