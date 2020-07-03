@@ -9,13 +9,12 @@ import NearPlaces from "../near-places/near-places.jsx";
 
 import {offerShape, reviewShape} from "../../utils/prop-types.js";
 import {MAX_NEAR_OFFERS_COUNT, MAX_IMAGES_COUNT, ViewMode} from "../../utils/constants.js";
-import {ViewMode} from "../../utils/constants.js";
 import {memoize} from "../../utils/utils.js";
 
 const PlaceDetails = (props) => {
   const {offer, offers, reviews, placeHeaderClickHandler} = props;
-  const filterOffers = memoize((id) => offers.filter((item) => item.id !== id).slice(0, MAX_NEAR_OFFERS_COUNT));
-  const nearOffers = filterOffers(offer.id);
+  const memorizedOffers = memoize((id) => offers.filter((item) => item.id !== id).slice(0, MAX_NEAR_OFFERS_COUNT));
+  const nearOffers = memorizedOffers(offer.id);
 
   return (
     <main className="page__main page__main--property">
