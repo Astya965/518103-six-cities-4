@@ -29,7 +29,7 @@ const getRandomDate = () => {
  * Генерация моков для отзыва
  * @return {Object} Данные для отзыва
  */
-const genrateComment = () => {
+const generateComment = () => {
   return {
     comment: getRandomElement(comments),
     date: getRandomDate(),
@@ -52,7 +52,7 @@ const genrateComment = () => {
 const generateComments = (count) => {
   return new Array(count)
   .fill(null)
-  .map(genrateComment);
+  .map(generateComment);
 };
 
 export const reviews = generateComments(COMMENTS_COUNT);
