@@ -88,7 +88,7 @@ export default class PlacesMap extends Component {
 
     if (prevActiveOffer.id !== activeOffer.id) {
       const newMarkers = offers.filter((offer) => !prevOffers.includes(offer));
-      const outdatedMarkers =  prevOffers.filter((offer) => !offers.includes(offer));
+      const outdatedMarkers = prevOffers.filter((offer) => !offers.includes(offer));
       outdatedMarkers.push(prevActiveOffer);
 
       this._clearMarkers(outdatedMarkers);
