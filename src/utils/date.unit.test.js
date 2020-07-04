@@ -7,6 +7,6 @@ describe((`date formatting tests`), () => {
   });
 
   it(`formatMonthDay test`, () => {
-    expect(formatMonthDay(unix1593807294000)).toBe(`July 03, 2020`);
+    expect(formatMonthDay(1593807294000)).toBe(`July 03, 2020`);
   });
 });

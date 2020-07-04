@@ -36,7 +36,6 @@ class PlacesList extends Component {
         {offers.map((offer) => {
           return <PlaceCard
             offer={offer}
-            isMainView={isMainView}
             onPlaceHeaderClick={placeHeaderClickHandler}
             handleCardPointerEnter = {this._handleCardPointerEnter}
             handleCardPointerLeave = {this._handleCardPointerLeave}

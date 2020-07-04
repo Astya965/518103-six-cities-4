@@ -614,13 +614,13 @@ exports[`Render PlaceDetails 1`] = `
         near-places__list"
       >
         <article
-          className="near-places__card place-card"
+          className="cities__place-card place-card"
           onPointerEnter={[Function]}
           onPointerLeave={[Function]}
         >
           
           <div
-            className="near-places__image-wrapper place-card__image-wrapper"
+            className="cities__image-wrapper place-card__image-wrapper"
           >
             <a
               href="#"

@@ -17,7 +17,7 @@ exports[`Render NearPlaces 1`] = `
         near-places__list"
     >
       <article
-        className="near-places__card place-card"
+        className="cities__place-card place-card"
         onPointerEnter={[Function]}
         onPointerLeave={[Function]}
       >
@@ -29,7 +29,7 @@ exports[`Render NearPlaces 1`] = `
           </span>
         </div>
         <div
-          className="near-places__image-wrapper place-card__image-wrapper"
+          className="cities__image-wrapper place-card__image-wrapper"
         >
           <a
             href="#"
@@ -122,13 +122,13 @@ exports[`Render NearPlaces 1`] = `
         </div>
       </article>
       <article
-        className="near-places__card place-card"
+        className="cities__place-card place-card"
         onPointerEnter={[Function]}
         onPointerLeave={[Function]}
       >
         
         <div
-          className="near-places__image-wrapper place-card__image-wrapper"
+          className="cities__image-wrapper place-card__image-wrapper"
         >
           <a
             href="#"
