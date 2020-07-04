@@ -86,11 +86,11 @@ export default class PlacesMap extends Component {
     const {activeOffer: prevActiveOffer, offers: prevOffers} = prevProps;
     const {activeOffer, offers} = this.props;
 
-    const newMarkers = offers.filter((offer) => !prevOffers.includes(offer));
-    const outdatedMarkers =  prevOffers.filter((offer) => !offers.includes(offer));
-    outdatedMarkers.push(prevActiveOffer);
-
     if (prevActiveOffer.id !== activeOffer.id) {
+      const newMarkers = offers.filter((offer) => !prevOffers.includes(offer));
+      const outdatedMarkers =  prevOffers.filter((offer) => !offers.includes(offer));
+      outdatedMarkers.push(prevActiveOffer);
+
       this._clearMarkers(outdatedMarkers);
       this._addMarkers(newMarkers);
     }
