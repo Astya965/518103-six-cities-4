@@ -8,6 +8,11 @@ const COMMENTS_COUNT = 3;
  */
 const MIN_DATE = Date.now() - 31556926 * 1000 * 2;
 
+const MAX_DATE = Date.now();
+
+const names = [`Anna`, `Lina`, `Simon`, `Alice`, `Mary`, `Max`, `Alex`];
+
+const avatars = [`img/avatar-angelina.jpg`, `img/avatar-max.jpg`];
 
 const comments = [`A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam.`,
   `Good location next to Amsterdam Zuid and by tram to museumplein 5 min. Nice view from window`,
