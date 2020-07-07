@@ -12,7 +12,8 @@ export default class PlacesMap extends Component {
     this._mapRef = createRef();
     this._mapInstance = null;
 
-    this._markers = {};
+    this._markers = new Set();
+    this._newOffersSet = new Set();
   }
 
   _initMap() {
@@ -44,19 +45,21 @@ export default class PlacesMap extends Component {
 
     if (this._mapInstance) {
       offers.forEach((offer) => {
-        this._addMarker(offer.location.latitude, offer.location.longitude, false, offer.id);
+        this._addMarker(offer.location.latitude, offer.location.longitude, false);
       });
 
       if (activeOffer !== null) {
-        this._addMarker(activeOffer.location.latitude, activeOffer.location.longitude, true, activeOffer.id);
+        this._addMarker(activeOffer.location.latitude, activeOffer.location.longitude, true);
       }
     }
   }
 
-  _addMarker(latitude, longitude, isActive, id) {
+  _addMarker(latitude, longitude, isActive) {
     const icon = this._getMarkerTemplate(isActive);
     const marker = leaflet.marker([latitude, longitude], {icon}).addTo(this._mapInstance);
-    this._markers[id] = marker;
+    if (!this._markers.has(marker)) {
+      this._markers.add(marker);
+    }
   }
 
   _getMarkerTemplate(isActive) {
@@ -66,12 +69,27 @@ export default class PlacesMap extends Component {
     });
   }
 
-  _clearMarkers(markers) {
+  _clearMarker(marker) {
     if (this._mapInstance !== null) {
-      markers.forEach((marker) => {
-        this._mapInstance.removeLayer(this._markers[marker.id]);
-      });
+      this._mapInstance.removeLayer(marker);
     }
+  }
+
+  _compareMarkers(newOffers) {
+    this._newOffersSet.clear();
+
+    newOffers.forEach((offer) => {
+      if (!this._markers.has(offer)) {
+        this._newOffersSet.add(offer);
+      }
+    })
+
+    this._markers.forEach((value) => {
+      if (!this._newOffersSet.has(value)) {
+        this._clearMarker(value);
+        this._markers.delete(value);
+      }
+    })
   }
 
   componentDidMount() {
@@ -83,16 +101,13 @@ export default class PlacesMap extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    const {activeOffer: prevActiveOffer, offers: prevOffers} = prevProps;
+    const {activeOffer: prevActiveOffer} = prevProps;
     const {activeOffer, offers} = this.props;
 
     if (prevActiveOffer.id !== activeOffer.id) {
-      const newMarkers = offers.filter((offer) => !prevOffers.includes(offer));
-      const outdatedMarkers = prevOffers.filter((offer) => !offers.includes(offer));
-      outdatedMarkers.push(prevActiveOffer);
-
-      this._clearMarkers(outdatedMarkers);
-      this._addMarkers(newMarkers);
+      this._compareMarkers(offers);
+      this._clearMarker(prevActiveOffer);
+      this._addMarkers(this._newOffersSet);
     }
   }
 
