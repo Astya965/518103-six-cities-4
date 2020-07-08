@@ -1,6 +1,7 @@
 import {getRatingPercentage} from "./utils.js";
 import {memoize} from "./utils.js";
 import {extendObject} from "./utils.js";
+import {uniqBy} from "./utils.js";
 
 const testMemoize = memoize((arr) => arr.map((item) => item));
 const testArr1 = [1, 2, 3];
@@ -55,5 +56,33 @@ describe((`extendObject tests`), () => {
     });
 
   });
+
+});
+
+describe((`uniqBy tests`), () => {
+
+  const testArr = [
+    {id: 1, name: `Alice`},
+    {id: 2, name: `Max`},
+    {id: 1, name: `Max`},
+    {id: 2, name: `Ann`},
+  ];
+
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
+
+  it(`uniqBy function should return array with uniq value, which filter by id`, () => {
+    expect(uniqBy(testArr, `id`)).toEqual([{id: 1, name: `Alice`}, {id: 2, name: `Max`}]);
+  });
+
+  it(`uniqBy function should return array with uniq value, which filter by name`, () => {
+    expect(uniqBy(testArr, (o) => o.name)).toEqual([{id: 1, name: `Alice`}, {id: 2, name: `Max`}, {id: 2, name: `Ann`}]);
+  });
+
+  it(`uniqBy function should return array with uniq value, without selection bias `, () => {
+    expect(uniqBy(testArr)).toEqual([{id: 1, name: `Alice`}]);
+  });
+
 
 });

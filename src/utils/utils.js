@@ -77,3 +77,24 @@ export const memoize = (fn) => {
  * @return {Object} Получившийся целевой объект
  */
 export const extendObject = (a, b) => Object.assign({}, a, b);
+
+/**
+ * Получение массива уникальных значений на основе определенного критерия
+ * @param {Array} arr - Проверяемый массив
+ * @param {Function} predicate - Критерий отбора значений; Принимает одно зачение!
+ * @return {Array} Массив уникальных значений на основе определенного критерия
+ */
+export const uniqBy = (arr, predicate) => {
+  const cb = typeof predicate === `function` ? predicate : (o) => o[predicate];
+
+  return [...arr.reduce((map, item) => {
+    const key = (item === null || item === undefined) ?
+      item : cb(item);
+
+    if (!map.has(key)) {
+      map.set(key, item);
+    }
+
+    return map;
+  }, new Map()).values()];
+};
