@@ -91,12 +91,16 @@ export default class PlacesMap extends Component {
       if (!newOffersSet.has(key)) {
         outdatedOffers.push(key);
       }
+<<<<<<< HEAD
     }
 
     return {
       newOffers,
       outdatedOffers
     };
+=======
+    });
+>>>>>>> style(4-2): fix typo
   }
 
   componentDidMount() {
