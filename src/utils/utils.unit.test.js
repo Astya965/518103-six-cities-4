@@ -1,5 +1,6 @@
 import {getRatingPercentage} from "./utils.js";
 import {memoize} from "./utils.js";
+import {extendObject} from "./utils.js";
 
 const testMemoize = memoize((arr) => arr.map((item) => item));
 const testArr1 = [1, 2, 3];
@@ -42,4 +43,17 @@ describe((`memoize tests`), () => {
   it(`Different arrays are not equal`, () => {
     expect(testMemoize(testArr1)).not.toBe(testMemoize(testArr2));
   });
+});
+
+describe((`extendObject tests`), () => {
+
+  it(`extendObject function should extend object`, () => {
+
+    expect(extendObject({name: `Alice`}, {age: 42})).toEqual({
+      name: `Alice`,
+      age: 42
+    });
+
+  });
+
 });
