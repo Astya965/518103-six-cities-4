@@ -16,3 +16,35 @@ export const ActionType = {
   LOAD_REVIEWS: `LOAD_REVIEWS`,
   LOAD_NEAR_OFFERS: `LOAD_NEAR_OFFERS`,
 };
+
+const ActionCreator = {
+  setCurrentCity: (city) => ({
+    type: ActionType.SET_CURRENT_CITY,
+    payload: city.name,
+  }),
+
+  setCurrentOffer: (offer) => ({
+    type: ActionType.SET_CURRENT_OFFER,
+    payload: offer
+  }),
+
+  loadOffers: (offers) => ({
+    type: ActionType.LOAD_OFFERS,
+    payload: offers,
+  }),
+
+  setCities: (offers) => ({
+    type: ActionType.SET_CITIES,
+    payload: offers,
+  }),
+
+  loadReviews: (reviews) => ({
+    type: ActionType.LOAD_REVIEWS,
+    payload: reviews,
+  }),
+
+  loadNearOffers: (offer) => ({
+    type: ActionType.LOAD_NEAR_OFFERS,
+    payload: offer,
+  }),
+};
