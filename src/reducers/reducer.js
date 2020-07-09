@@ -107,6 +107,7 @@ const setCities = (state, action) => {
     },
     name: offer.city.name})
   ), `name`);
+
   const currentCity = cities[0];
   const offersByCity = state.allOffers.filter((offer) => offer.city.name === cities[0].name);
 
