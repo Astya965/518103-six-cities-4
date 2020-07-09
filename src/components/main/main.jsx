@@ -9,7 +9,7 @@ import PlacesMap from "../places-map/places-map.jsx";
 import PlacesList from "../places-list/places-list.jsx";
 
 const Main = (props) => {
-  const {offers, placeHeaderClickHandler} = props;
+  const {offers, cities, city, onCityNameClick, placeHeaderClickHandler} = props;
 
   return (
     <div className="page page--gray page--main">
@@ -39,13 +39,13 @@ const Main = (props) => {
       <main className="page__main page__main--index">
         <h1 className="visually-hidden">Cities</h1>
         <div className="tabs">
-          <Locations />
+          <Locations cities={cities} activeCity={city} onCityNameClick={onCityNameClick}/>
         </div>
         <div className="cities">
           <div className="cities__places-container container">
             <section className="cities__places places">
               <h2 className="visually-hidden">Places</h2>
-              <b className="places__found">{offers.length} places to stay in Amsterdam</b>
+                <b className="places__found">{offers.length} places to stay in {city.name}</b>
               <form className="places__sorting" action="#" method="get">
                 <span className="places__sorting-caption">Sort by</span>
                 <span className="places__sorting-type" tabIndex="0">
@@ -66,7 +66,7 @@ const Main = (props) => {
                 placeHeaderClickHandler={placeHeaderClickHandler} />
             </section>
             <div className="cities__right-section">
-              <PlacesMap offers={offers} viewMode={ViewMode.Main}/>
+              <PlacesMap offers={offers} viewMode={ViewMode.Main} city={city}/>
             </div>
           </div>
         </div>

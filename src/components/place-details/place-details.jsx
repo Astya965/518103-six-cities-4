@@ -12,7 +12,7 @@ import {memoize} from "../../utils/utils.js";
 import {MAX_NEAR_OFFERS_COUNT, MAX_IMAGES_COUNT, MAX_REVIEWS_COUNT, ViewMode} from "../../utils/constants.js";
 
 const PlaceDetails = (props) => {
-  const {offer, offers, reviews, placeHeaderClickHandler} = props;
+  const {offer, offers, city, reviews, placeHeaderClickHandler} = props;
   const memorizedOffers = memoize((id) => offers.filter((item) => item.id !== id).slice(0, MAX_NEAR_OFFERS_COUNT));
   const nearOffers = memorizedOffers(offer.id);
   const memorizedSlicedArray = memoize((array, max) => array.slice(0, max));
@@ -29,7 +29,7 @@ const PlaceDetails = (props) => {
             <ReviewsList reviews={slicedReviews}/>
           </div>
         </div>
-        <PlacesMap offers={nearOffers} activeOffer={offer} viewMode={ViewMode.PlaceDetails}/>
+        <PlacesMap offers={nearOffers} activeOffer={offer} city={city} viewMode={ViewMode.PlaceDetails}/>
       </section>
       <NearPlaces offers={nearOffers} viewMode={ViewMode.PlaceDetails} placeHeaderClickHandler={placeHeaderClickHandler}/>
     </main>
