@@ -1,39 +1,28 @@
 import React from "react";
 
-const Locations = () => {
+const Locations = (props) => {
+  const {cities, activeCity, onCityNameClick} = props;
+
+  const handleCityClick = (evt, city) => {
+    evt.preventDefault();
+    onCityNameClick(city);
+  };
+
   return (
     <section className="locations container">
       <ul className="locations__list tabs__list">
-        <li className="locations__item">
-          <a className="locations__item-link tabs__item" href="#">
-            <span>Paris</span>
-          </a>
-        </li>
-        <li className="locations__item">
-          <a className="locations__item-link tabs__item" href="#">
-            <span>Cologne</span>
-          </a>
-        </li>
-        <li className="locations__item">
-          <a className="locations__item-link tabs__item" href="#">
-            <span>Brussels</span>
-          </a>
-        </li>
-        <li className="locations__item">
-          <a className="locations__item-link tabs__item tabs__item--active">
-            <span>Amsterdam</span>
-          </a>
-        </li>
-        <li className="locations__item">
-          <a className="locations__item-link tabs__item" href="#">
-            <span>Hamburg</span>
-          </a>
-        </li>
-        <li className="locations__item">
-          <a className="locations__item-link tabs__item" href="#">
-            <span>Dusseldorf</span>
-          </a>
-        </li>
+        {cities.map((city) => {
+          return (
+            <li className="locations__item" key={city.name}>
+              <a className={`locations__item-link tabs__item ${city.name === activeCity.name ? `tabs__item--active` : ``}`}
+                href="#"
+                onClick={(evt)=>(handleCityClick(evt, city))}
+              >
+                <span>{city.name}</span>
+              </a>
+            </li>
+          )
+        })}
       </ul>
     </section>
   );
