@@ -20,7 +20,7 @@ export default class PlacesMap extends Component {
       return;
     }
 
-    const {latitude, longitude, zoom} = this.props.offers[0].city.location;
+    const {latitude, longitude, zoom} = this.props.city.location;
 
     const mapSettings = {
       center: [latitude, longitude],
@@ -91,16 +91,12 @@ export default class PlacesMap extends Component {
       if (!newOffersSet.has(key)) {
         outdatedOffers.push(key);
       }
-<<<<<<< HEAD
     }
 
     return {
       newOffers,
       outdatedOffers
     };
-=======
-    });
->>>>>>> style(4-2): fix typo
   }
 
   componentDidMount() {
