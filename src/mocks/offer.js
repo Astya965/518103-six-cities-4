@@ -2,7 +2,7 @@ import shortid from "shortid";
 import {getRandomNumber, getRandomElement, getRandomBoolean, shuffleArray} from "../utils/utils.js";
 import {offerTypesMap, offerGoodsMap} from "../utils/constants.js";
 
-const OFFERS_COUNT = 4;
+const OFFERS_COUNT = 24;
 
 const titles = [
   `Beautiful & luxurious apartment at great location`,
@@ -49,6 +49,51 @@ const getCoorginates = () => {
   };
 };
 
+const cities = [
+  {
+    location: {
+      latitude: 52.38333,
+      longitude: 4.9,
+      zoom: 12
+    },
+    name: `Amsterdam`,
+  }, {
+    location: {
+      latitude: 33.66094,
+      longitude: -95.55551,
+      zoom: 12
+    },
+    name: `Paris`,
+  }, {
+    location: {
+      latitude: 50.93333,
+      longitude: 6.97,
+      zoom: 12
+    },
+    name: `Cologne`,
+  }, {
+    location: {
+      latitude: 50.85045,
+      longitude: 4.34878,
+      zoom: 12
+    },
+    name: `Brussels`,
+  }, {
+    location: {
+      latitude: 53.551086,
+      longitude: 9.993682,
+      zoom: 12
+    },
+    name: `Hamburg`,
+  }, {
+    location: {
+      latitude: 51.22172,
+      longitude: 6.77616,
+      zoom: 12
+    },
+    name: `Dusseldorf`,
+  }];
+
 /**
  * Генерация моков для предложения
  * @return {Object} Данные для предложения
@@ -75,14 +120,7 @@ const generateOffer = () => {
     },
     description: shuffleArray(descriptions).slice(0, 2),
     location: getCoorginates(),
-    city: {
-      location: {
-        latitude: 52.38333,
-        longitude: 4.9,
-        zoom: 12
-      },
-      name: `Amsterdam`
-    }
+    city: getRandomElement(cities),
   };
 };
 
