@@ -1,6 +1,8 @@
 import React, {Component} from "react";
 import PropTypes from "prop-types";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import {connect} from 'react-redux';
+import {ActionCreator} from '../../reducers/reducer.js';
 
 import {offerShape, reviewShape} from "../../utils/prop-types.js";
 import Main from "../main/main.jsx";
@@ -24,22 +26,29 @@ class App extends Component {
   }
 
   render() {
-    const {offers, reviews} = this.props;
+    const {offers, reviews, cities, currentCity, onCityNameClick} = this.props;
 
     return (
       <Router>
         <Switch>
           <Route exact path="/">
             {this.state.currentOffer ?
-              <PlaceDetails offer={this.state.currentOffer} offers={offers}
+              <PlaceDetails offer={this.state.currentOffer}
+                offers={offers}
+                city={currentCity}
                 reviews={reviews}
                 placeHeaderClickHandler={this.placeHeaderClickHandler} /> :
               <Main offers={offers}
+                cities={cities}
+                city={currentCity}
+                onCityNameClick={onCityNameClick}
                 placeHeaderClickHandler={this.placeHeaderClickHandler} />
             }
           </Route>
           <Route exact path="/dev-component">
-            <PlaceDetails offer={offers[0]} offers={offers}
+            <PlaceDetails offer={offers[0]}
+              offers={offers}
+              city={currentCity}
               reviews={reviews}
               placeHeaderClickHandler={this.placeHeaderClickHandler} />
           </Route>
@@ -49,9 +58,24 @@ class App extends Component {
   }
 }
 
+const mapStateToProps = (state) => ({
+  offers: state.offersByCity,
+  reviews: state.reviews,
+  cities: state.cities,
+  currentOffer: state.currentOffer,
+  currentCity: state.currentCity,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  onCityNameClick(city) {
+    dispatch(ActionCreator.setCurrentCity(city));
+  }
+});
+
 App.propTypes = {
   offers: PropTypes.arrayOf(PropTypes.shape(offerShape)).isRequired,
   reviews: PropTypes.arrayOf(PropTypes.shape(reviewShape)).isRequired,
 };
 
-export default App;
+export {App};
+export default connect(mapStateToProps, mapDispatchToProps)(App);
