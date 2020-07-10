@@ -77,7 +77,7 @@ export default class PlacesMap extends Component {
         this._mapInstance.removeLayer(this._markers.get(offer.id));
         this._markers.delete(offer.id);
         this._offersMap.delete(offer);
-      })
+      });
     }
   }
 
@@ -102,7 +102,7 @@ export default class PlacesMap extends Component {
     return {
       newOffers,
       outdatedOffers
-    }
+    };
   }
 
   componentDidMount() {
