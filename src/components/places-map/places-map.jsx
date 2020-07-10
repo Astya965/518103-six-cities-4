@@ -12,8 +12,8 @@ export default class PlacesMap extends Component {
     this._mapRef = createRef();
     this._mapInstance = null;
 
-    this._markers = new Set();
-    this._newOffersSet = new Set();
+    this._markers = new Map();
+    this._offersMap = new Set();
   }
 
   _initMap() {
@@ -45,21 +45,27 @@ export default class PlacesMap extends Component {
 
     if (this._mapInstance) {
       offers.forEach((offer) => {
-        this._addMarker(offer.location.latitude, offer.location.longitude, false);
+        this._addMarker(offer.location.latitude, offer.location.longitude, false, offer.id);
+
+        if (!this._offersMap.has(offer)) {
+          this._offersMap.add(offer);
+        }
       });
 
       if (activeOffer !== null) {
-        this._addMarker(activeOffer.location.latitude, activeOffer.location.longitude, true);
+        this._addMarker(activeOffer.location.latitude, activeOffer.location.longitude, true, activeOffer.id);
+
+        if (!this._offersMap.has(activeOffer)) {
+          this._offersMap.add(activeOffer);
+        }
       }
     }
   }
 
-  _addMarker(latitude, longitude, isActive) {
+  _addMarker(latitude, longitude, isActive, id) {
     const icon = this._getMarkerTemplate(isActive);
     const marker = leaflet.marker([latitude, longitude], {icon}).addTo(this._mapInstance);
-    if (!this._markers.has(marker)) {
-      this._markers.add(marker);
-    }
+    this._markers.set(id, marker);
   }
 
   _getMarkerTemplate(isActive) {
@@ -69,27 +75,38 @@ export default class PlacesMap extends Component {
     });
   }
 
-  _clearMarker(marker) {
+  _clearMarkers(offers) {
     if (this._mapInstance !== null) {
-      this._mapInstance.removeLayer(marker);
+      offers.forEach((offer) => {
+        this._mapInstance.removeLayer(this._markers.get(offer.id));
+        this._markers.delete(offer.id);
+      })
     }
   }
 
   _compareMarkers(newOffers) {
-    this._newOffersSet.clear();
+    const newOffersSet = new Set();
+    const outdatedOffersSet = new Set();
 
     newOffers.forEach((offer) => {
-      if (!this._markers.has(offer)) {
-        this._newOffersSet.add(offer);
+      if (!this._offersMap.has(offer)) {
+        newOffersSet.add(offer);
       }
-    })
+    });
 
-    this._markers.forEach((value) => {
-      if (!this._newOffersSet.has(value)) {
-        this._clearMarker(value);
-        this._markers.delete(value);
+    this._offersMap.forEach((value) => {
+      if (!newOffersSet.has(value)) {
+        outdatedOffersSet.add(value);
       }
-    })
+    });
+
+    console.log(newOffersSet);
+    console.log(outdatedOffersSet);
+
+    return {
+      newOffersSet,
+      outdatedOffersSet
+    }
   }
 
   componentDidMount() {
@@ -101,13 +118,14 @@ export default class PlacesMap extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    const {activeOffer: prevActiveOffer} = prevProps;
+    const {activeOffer: prevActiveOffer, offer: prevOffers} = prevProps;
     const {activeOffer, offers} = this.props;
 
     if (prevActiveOffer.id !== activeOffer.id) {
-      this._compareMarkers(offers);
-      this._clearMarker(prevActiveOffer);
-      this._addMarkers(this._newOffersSet);
+      const {newOffersSet, outdatedOffersSet} = this._compareMarkers(offers, prevOffers);
+
+      this._clearMarkers(outdatedOffersSet);
+      this._addMarkers(newOffersSet);
     }
   }
 
