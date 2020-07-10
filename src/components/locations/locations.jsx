@@ -13,12 +13,12 @@ const Locations = (props) => {
       <ul className="locations__list tabs__list">
         {cities.map((city) => {
           return (
-            <li className="locations__item" key={city.name}>
-              <a className={`locations__item-link tabs__item ${city.name === activeCity.name ? `tabs__item--active` : ``}`}
+            <li className="locations__item" key={city}>
+              <a className={`locations__item-link tabs__item ${city === activeCity ? `tabs__item--active` : ``}`}
                 href="#"
                 onClick={(evt)=>(handleCityClick(evt, city))}
               >
-                <span>{city.name}</span>
+                <span>{city}</span>
               </a>
             </li>
           )

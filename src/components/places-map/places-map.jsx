@@ -108,15 +108,22 @@ export default class PlacesMap extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    const {activeOffer: prevActiveOffer} = prevProps;
-    const {activeOffer, offers} = this.props;
+    const {activeOffer: prevActiveOffer, city: prevCity} = prevProps;
+    const {activeOffer, offers, city} = this.props;
 
-    if (prevActiveOffer.id !== activeOffer.id) {
-      const {newOffers, outdatedOffers} = this._compareMarkers(offers);
-      outdatedOffers.push(prevActiveOffer.id);
-      this._clearMarkers(outdatedOffers);
-      newOffers.push(prevActiveOffer);
-      this._addMarkers(newOffers);
+    if (prevCity.name !== city.name && this._mapInstance) {
+      this.destroy();
+      this._initMap();
+    }
+
+    if (activeOffer) {
+      if (prevActiveOffer.id !== activeOffer.id) {
+        const {newOffers, outdatedOffers} = this._compareMarkers(offers);
+        outdatedOffers.push(prevActiveOffer.id);
+        this._clearMarkers(outdatedOffers);
+        newOffers.push(prevActiveOffer);
+        this._addMarkers(newOffers);
+      }
     }
   }
 

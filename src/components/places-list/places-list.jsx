@@ -1,6 +1,8 @@
 import React, {Component} from "react";
 import PropTypes from "prop-types";
+import {connect} from 'react-redux';
 
+import {ActionCreator} from "../../reducers/cities/cities.js";
 import {offerShape} from "../../utils/prop-types.js";
 import {ViewMode, VIEWMODES} from "../../utils/constants.js";
 
@@ -25,7 +27,7 @@ class PlacesList extends Component {
   }
 
   render() {
-    const {offers, viewMode, placeHeaderClickHandler} = this.props;
+    const {offers, viewMode, onPlaceHeaderClick} = this.props;
 
     const isMainView = viewMode === ViewMode.Main;
 
@@ -36,7 +38,7 @@ class PlacesList extends Component {
         {offers.map((offer) => {
           return <PlaceCard
             offer={offer}
-            onPlaceHeaderClick={placeHeaderClickHandler}
+            onPlaceHeaderClick={onPlaceHeaderClick}
             handleCardPointerEnter = {this._handleCardPointerEnter}
             handleCardPointerLeave = {this._handleCardPointerLeave}
             key={offer.id}
@@ -48,10 +50,16 @@ class PlacesList extends Component {
   }
 }
 
+const mapDispatchToProps = (dispatch) => ({
+  onPlaceHeaderClick(offer) {
+    dispatch(ActionCreator.setCurrentOffer(offer));
+  },
+});
+
 PlacesList.propTypes = {
   offers: PropTypes.arrayOf(PropTypes.shape(offerShape)).isRequired,
   viewMode: PropTypes.oneOf(VIEWMODES).isRequired,
-  placeHeaderClickHandler: PropTypes.func.isRequired,
 };
 
-export default PlacesList;
+export {PlacesList};
+export default connect(() => ({}), mapDispatchToProps)(PlacesList);

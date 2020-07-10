@@ -45,7 +45,7 @@ const Main = (props) => {
           <div className="cities__places-container container">
             <section className="cities__places places">
               <h2 className="visually-hidden">Places</h2>
-                <b className="places__found">{offers.length} places to stay in {city.name}</b>
+                <b className="places__found">{offers.length} places to stay in {city}</b>
               <form className="places__sorting" action="#" method="get">
                 <span className="places__sorting-caption">Sort by</span>
                 <span className="places__sorting-type" tabIndex="0">
@@ -62,11 +62,10 @@ const Main = (props) => {
                 </ul>
               </form>
               <PlacesList offers={offers}
-                viewMode={ViewMode.Main}
-                placeHeaderClickHandler={placeHeaderClickHandler} />
+                viewMode={ViewMode.Main} />
             </section>
             <div className="cities__right-section">
-              <PlacesMap offers={offers} viewMode={ViewMode.Main} city={city}/>
+              <PlacesMap offers={offers} viewMode={ViewMode.Main} city={offers[0].city}/>
             </div>
           </div>
         </div>
@@ -77,7 +76,6 @@ const Main = (props) => {
 
 Main.propTypes = {
   offers: PropTypes.arrayOf(PropTypes.shape(offerShape)).isRequired,
-  placeHeaderClickHandler: PropTypes.func.isRequired,
 };
 
 export default Main;
