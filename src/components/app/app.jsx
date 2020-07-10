@@ -2,7 +2,11 @@ import React, {Component} from "react";
 import PropTypes from "prop-types";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import {connect} from 'react-redux';
-import {ActionCreator} from '../../reducers/reducer.js';
+
+import {ActionCreator} from "../../reducers/cities/cities.js";
+import {getReviews} from "../../reducers/reviews/selector.js";
+import {getCurrentOffers} from "../../reducers/data/selector.js";
+import {getCurrentOffer, getActiveCity, getCities} from "../../reducers/cities/selector.js";
 
 import {offerShape, reviewShape} from "../../utils/prop-types.js";
 import Main from "../main/main.jsx";
@@ -32,7 +36,7 @@ class App extends Component {
       <Router>
         <Switch>
           <Route exact path="/">
-            {this.state.currentOffer ?
+            {this.state.currentOffer !== null ?
               <PlaceDetails offer={this.state.currentOffer}
                 offers={offers}
                 city={currentCity}
@@ -59,11 +63,11 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  offers: state.offersByCity,
-  reviews: state.reviews,
-  cities: state.cities,
-  currentOffer: state.currentOffer,
-  currentCity: state.currentCity,
+  offers: getCurrentOffers(state),
+  reviews: getReviews(state),
+  cities: getCities(state),
+  currentOffer: getCurrentOffer(state),
+  currentCity: getActiveCity(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
