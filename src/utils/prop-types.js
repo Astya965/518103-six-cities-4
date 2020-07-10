@@ -20,6 +20,18 @@ export const offerShape = {
     isPro: PropTypes.bool.isRequired,
     name: PropTypes.string.isRequired,
   }).isRequired,
+  location: PropTypes.shape({
+    latitude: PropTypes.number.isRequired,
+    longitude: PropTypes.number.isRequired,
+  }).isRequired,
+  city: PropTypes.shape({
+    location: PropTypes.shape({
+      latitude: PropTypes.number.isRequired,
+      longitude: PropTypes.number.isRequired,
+      zoom: PropTypes.number.isRequired,
+    }).isRequired,
+    name: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export const reviewShape = {

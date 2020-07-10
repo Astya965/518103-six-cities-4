@@ -20,7 +20,7 @@ export const reducer = (state = initialState, action) => {
     case ActionType.LOAD_NEAR_OFFERS:
       return extendObject(state, {
         nearby: action.payload,
-      });;
+      });
 
     default: return state;
   }

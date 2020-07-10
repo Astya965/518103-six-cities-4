@@ -6,14 +6,14 @@ const initialState = {
 
 export const ActionType = {
   LOAD_OFFERS: `LOAD_OFFERS`,
-}
+};
 
 export const ActionCreator = {
   loadOffers: (offers) => ({
     type: ActionType.LOAD_OFFERS,
     payload: offers,
   }),
-}
+};
 
 export const reducer = (state = initialState, action) => {
   switch (action.type) {

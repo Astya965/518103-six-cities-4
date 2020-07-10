@@ -13,8 +13,8 @@ import {ActionCreator as DataActionCreator} from './reducers/data/data.js';
 import {ActionCreator as ReviewsActionCreator} from './reducers/reviews/reviews.js';
 
 const store = createStore(
-  reducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__() : (f) => f
+    reducer,
+    window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__() : (f) => f
 );
 
 store.dispatch(DataActionCreator.loadOffers(offers));

@@ -59,6 +59,7 @@ const mapDispatchToProps = (dispatch) => ({
 PlacesList.propTypes = {
   offers: PropTypes.arrayOf(PropTypes.shape(offerShape)).isRequired,
   viewMode: PropTypes.oneOf(VIEWMODES).isRequired,
+  onPlaceHeaderClick: PropTypes.func.isRequired,
 };
 
 export {PlacesList};

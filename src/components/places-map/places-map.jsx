@@ -155,6 +155,14 @@ PlacesMap.defaultProps = {
 
 PlacesMap.propTypes = {
   offers: PropTypes.arrayOf(PropTypes.shape(offerShape)).isRequired,
+  city: PropTypes.shape({
+    location: PropTypes.shape({
+      latitude: PropTypes.number.isRequired,
+      longitude: PropTypes.number.isRequired,
+      zoom: PropTypes.number.isRequired,
+    }).isRequired,
+    name: PropTypes.string.isRequired,
+  }).isRequired,
   viewMode: PropTypes.oneOf(VIEWMODES).isRequired,
   activeOffer: PropTypes.shape(offerShape),
 };

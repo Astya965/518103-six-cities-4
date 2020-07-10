@@ -8,6 +8,7 @@ import {getReviews} from "../../reducers/reviews/selector.js";
 import {getCurrentOffers} from "../../reducers/data/selector.js";
 import {getCurrentOffer, getActiveCity, getCities} from "../../reducers/cities/selector.js";
 
+import {CITIES} from "../../utils/constants.js";
 import {offerShape, reviewShape} from "../../utils/prop-types.js";
 import Main from "../main/main.jsx";
 import PlaceDetails from "../place-details/place-details.jsx";
@@ -63,7 +64,11 @@ const mapDispatchToProps = (dispatch) => ({
 
 App.propTypes = {
   offers: PropTypes.arrayOf(PropTypes.shape(offerShape)).isRequired,
+  currentOffer: PropTypes.shape(offerShape).isRequiredOrNull,
+  cities: PropTypes.arrayOf(PropTypes.oneOf(CITIES)).isRequired,
+  currentCity: PropTypes.oneOf(CITIES).isRequired,
   reviews: PropTypes.arrayOf(PropTypes.shape(reviewShape)).isRequired,
+  onCityNameClick: PropTypes.func.isRequired,
 };
 
 export {App};

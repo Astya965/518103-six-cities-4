@@ -1,4 +1,7 @@
 import React from "react";
+import PropTypes from "prop-types";
+
+import {CITIES} from "../../utils/constants.js";
 
 const Locations = (props) => {
   const {cities, activeCity, onCityNameClick} = props;
@@ -21,11 +24,17 @@ const Locations = (props) => {
                 <span>{city}</span>
               </a>
             </li>
-          )
+          );
         })}
       </ul>
     </section>
   );
+};
+
+Locations.propTypes = {
+  cities: PropTypes.arrayOf(PropTypes.oneOf(CITIES)).isRequired,
+  activeCity: PropTypes.oneOf(CITIES).isRequired,
+  onCityNameClick: PropTypes.func.isRequired,
 };
 
 export default Locations;

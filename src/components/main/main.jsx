@@ -2,14 +2,14 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import {offerShape} from "../../utils/prop-types.js";
-import {ViewMode} from "../../utils/constants.js";
+import {ViewMode, CITIES} from "../../utils/constants.js";
 
 import Locations from "../locations/locations.jsx";
 import PlacesMap from "../places-map/places-map.jsx";
 import PlacesList from "../places-list/places-list.jsx";
 
 const Main = (props) => {
-  const {offers, cities, city, onCityNameClick, placeHeaderClickHandler} = props;
+  const {offers, cities, city, onCityNameClick} = props;
 
   return (
     <div className="page page--gray page--main">
@@ -45,7 +45,7 @@ const Main = (props) => {
           <div className="cities__places-container container">
             <section className="cities__places places">
               <h2 className="visually-hidden">Places</h2>
-                <b className="places__found">{offers.length} places to stay in {city}</b>
+              <b className="places__found">{offers.length} places to stay in {city}</b>
               <form className="places__sorting" action="#" method="get">
                 <span className="places__sorting-caption">Sort by</span>
                 <span className="places__sorting-type" tabIndex="0">
@@ -76,6 +76,9 @@ const Main = (props) => {
 
 Main.propTypes = {
   offers: PropTypes.arrayOf(PropTypes.shape(offerShape)).isRequired,
+  cities: PropTypes.arrayOf(PropTypes.oneOf(CITIES)).isRequired,
+  city: PropTypes.oneOf(CITIES).isRequired,
+  onCityNameClick: PropTypes.func.isRequired,
 };
 
 export default Main;

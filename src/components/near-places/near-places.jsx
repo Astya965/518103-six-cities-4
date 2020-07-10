@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import {ViewMode, VIEWMODES} from "../../utils/constants.js";
+import {VIEWMODES} from "../../utils/constants.js";
 import {offerShape} from "../../utils/prop-types.js";
 
 import PlacesList from "../places-list/places-list.jsx";
