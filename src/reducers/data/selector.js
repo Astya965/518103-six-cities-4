@@ -2,13 +2,13 @@ import {createSelector} from "reselect";
 import NameSpace from "../name-space.js";
 
 const getOffers = (state) => (state[NameSpace.DATA].offers);
-const getCity = (state) => (state[NameSpace.CITIES].currentCity);
+const getActiveCity = (state) => (state[NameSpace.CITIES].currentCity);
 
 export const getCurrentOffers = createSelector(
   getOffers,
-  getCity,
+  getActiveCity,
   (offers, city) => {
-    const result = offers.filter((it) => (it.city.name === city));
+    const result = offers.filter((offer) => (offer.city.name === city));
 
     return result;
   }
