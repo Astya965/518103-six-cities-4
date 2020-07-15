@@ -76,12 +76,12 @@ export default class PlacesMap extends Component {
   }
 
   _compareMarkers(newData) {
-    const newOffersSet = new Map();
+    const newOffersSet = new Set();
     const newOffers = [];
     const outdatedOffers = [];
 
     newData.forEach((offer) => {
-      newOffersSet.set(offer.id, offer);
+      newOffersSet.add(offer.id);
       if (!this._markers.has(offer.id)) {
         newOffers.push(offer);
       }
