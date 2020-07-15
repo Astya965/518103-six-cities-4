@@ -9,15 +9,15 @@ export const ActionType = {
 };
 
 export const ActionCreator = {
-  loadNearOffers: (offer) => ({
-    type: ActionType.LOAD_NEAR_OFFERS,
-    payload: offer,
+  loadNearOffers: (offers) => ({
+    type: ActionType.LOAD_NEARBY_OFFERS,
+    payload: offers,
   }),
 };
 
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case ActionType.LOAD_NEAR_OFFERS:
+    case ActionType.LOAD_NEARBY_OFFERS:
       return extendObject(state, {
         nearby: action.payload,
       });
