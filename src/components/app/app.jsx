@@ -64,7 +64,7 @@ const mapDispatchToProps = (dispatch) => ({
 
 App.propTypes = {
   offers: PropTypes.arrayOf(PropTypes.shape(offerShape)).isRequired,
-  currentOffer: PropTypes.shape(offerShape).isRequiredOrNull,
+  currentOffer: PropTypes.shape(offerShape),
   cities: PropTypes.arrayOf(PropTypes.oneOf(CITIES)).isRequired,
   currentCity: PropTypes.oneOf(CITIES).isRequired,
   reviews: PropTypes.arrayOf(PropTypes.shape(reviewShape)).isRequired,
