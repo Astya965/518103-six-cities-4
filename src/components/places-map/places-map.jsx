@@ -13,7 +13,6 @@ export default class PlacesMap extends Component {
     this._mapInstance = null;
 
     this._markers = new Map();
-    this._offersMap = new Set();
   }
 
   _initMap() {
@@ -46,10 +45,6 @@ export default class PlacesMap extends Component {
     if (this._mapInstance) {
       offers.forEach((offer) => {
         this._addMarker(offer.location.latitude, offer.location.longitude, false, offer.id);
-
-        if (!this._offersMap.has(offer)) {
-          this._offersMap.add(offer);
-        }
       });
 
       if (activeOffer !== null) {
@@ -71,33 +66,32 @@ export default class PlacesMap extends Component {
     });
   }
 
-  _clearMarkers(offers) {
+  _clearMarkers(keys) {
     if (this._mapInstance !== null) {
-      offers.forEach((offer) => {
-        this._mapInstance.removeLayer(this._markers.get(offer.id));
-        this._markers.delete(offer.id);
-        this._offersMap.delete(offer);
+      keys.forEach((key) => {
+        this._mapInstance.removeLayer(this._markers.get(key));
+        this._markers.delete(key);
       });
     }
   }
 
   _compareMarkers(newData) {
-    const newOffersSet = new Set();
+    const newOffersSet = new Map();
     const newOffers = [];
     const outdatedOffers = [];
 
     newData.forEach((offer) => {
-      newOffersSet.add(offer);
-      if (!this._offersMap.has(offer)) {
+      newOffersSet.set(offer.id, offer);
+      if (!this._markers.has(offer.id)) {
         newOffers.push(offer);
       }
     });
 
-    this._offersMap.forEach((offer) => {
-      if (!newOffersSet.has(offer)) {
-        outdatedOffers.push(offer);
+    for (let key of this._markers.keys()) {
+      if (!newOffersSet.has(key)) {
+        outdatedOffers.push(key);
       }
-    });
+    }
 
     return {
       newOffers,
@@ -119,9 +113,9 @@ export default class PlacesMap extends Component {
 
     if (prevActiveOffer.id !== activeOffer.id) {
       const {newOffers, outdatedOffers} = this._compareMarkers(offers);
-
-      outdatedOffers.push(prevActiveOffer);
+      outdatedOffers.push(prevActiveOffer.id);
       this._clearMarkers(outdatedOffers);
+      newOffers.push(prevActiveOffer);
       this._addMarkers(newOffers);
     }
   }
