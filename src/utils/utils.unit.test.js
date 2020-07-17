@@ -1,26 +1,6 @@
 import {getRatingPercentage} from "./utils.js";
 import {memoize} from "./utils.js";
 
-const testRatingMin = {
-  value: 0,
-  percentage: `0%`
-};
-
-const testRatingMax = {
-  value: 5,
-  percentage: `100%`
-};
-
-const testRatingHalf = {
-  value: 2.5,
-  percentage: `60%`
-};
-
-const testRatingFraction = {
-  value: 1.1,
-  percentage: `20%`
-};
-
 const testMemoize = memoize((arr) => arr.map((item) => item));
 const testArr1 = [1, 2, 3];
 const testArr2 = [4, 5, 6];
@@ -32,19 +12,19 @@ describe(`getRatingPercentage tests`, () => {
   });
 
   it(`Rating for 0`, () => {
-    expect(getRatingPercentage(testRatingMin.value)).toBe(testRatingMin.percentage);
+    expect(getRatingPercentage(0)).toBe(`0%`);
   });
 
   it(`Rating for 5`, () => {
-    expect(getRatingPercentage(testRatingMax.value)).toBe(testRatingMax.percentage);
+    expect(getRatingPercentage(5)).toBe(`100%`);
   });
 
   it(`Rating for 2.5`, () => {
-    expect(getRatingPercentage(testRatingHalf.value)).toBe(testRatingHalf.percentage);
+    expect(getRatingPercentage(2.5)).toBe(`60%`);
   });
 
   it(`Rating for 1.1`, () => {
-    expect(getRatingPercentage(testRatingFraction.value)).toBe(testRatingFraction.percentage);
+    expect(getRatingPercentage(1.1)).toBe(`20%`);
   });
 
 });

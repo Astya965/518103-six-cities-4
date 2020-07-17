@@ -100,3 +100,56 @@ export const testOffer = {
     name: `Amsterdam`
   }
 };
+
+export const testReviews = [
+  {
+    comment: `A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam.`,
+    date: 1272402600000,
+    id: `1`,
+    rating: 5,
+    user: {
+      avatarUrl: `img/avatar-max.jpg`,
+      id: `host-3`,
+      isPro: false,
+      name: `Leo`,
+    }
+  },
+  {
+    comment: `A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam.`,
+    date: 1472402600000,
+    id: `2`,
+    rating: 3,
+    user: {
+      avatarUrl: `img/avatar-max.jpg`,
+      id: `host-4`,
+      isPro: false,
+      name: `Melon`,
+    }
+  },
+  {
+    comment: `Didn't like that the bathroom door inside the room is wide open.
+    Overall the hotel is really close to the metro/train station and it was clean and comfortable.`,
+    date: 1492402600000,
+    id: `3`,
+    rating: 0,
+    user: {
+      avatarUrl: `img/avatar-angelina.jpg`,
+      id: `host-5`,
+      isPro: true,
+      name: `Su`,
+    }
+  },
+];
+
+export const testReview = {
+  comment: `A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam.`,
+  date: 1272402600000,
+  id: `1`,
+  rating: 5,
+  user: {
+    avatarUrl: `img/avatar-max.jpg`,
+    id: `host-3`,
+    isPro: false,
+    name: `Leo`,
+  }
+};

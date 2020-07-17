@@ -2,6 +2,8 @@ import React, {Component} from "react";
 import PropTypes from "prop-types";
 
 import {offerShape} from "../../utils/prop-types.js";
+import {ViewMode, VIEWMODES} from "../../utils/constants.js";
+
 import PlaceCard from "../place-card/place-card.jsx";
 
 class PlacesList extends Component {
@@ -23,10 +25,13 @@ class PlacesList extends Component {
   }
 
   render() {
-    const {offers, placeHeaderClickHandler} = this.props;
+    const {offers, viewMode, placeHeaderClickHandler} = this.props;
+
+    const isMainView = viewMode === ViewMode.Main;
 
     return (
-      <div className="cities__places-list places__list tabs__content">
+      <div className={`places__list
+        ${isMainView ? `cities__places-list tabs__content` : `near-places__list`}`}>
 
         {offers.map((offer) => {
           return <PlaceCard
@@ -45,6 +50,7 @@ class PlacesList extends Component {
 
 PlacesList.propTypes = {
   offers: PropTypes.arrayOf(PropTypes.shape(offerShape)).isRequired,
+  viewMode: PropTypes.oneOf(VIEWMODES).isRequired,
   placeHeaderClickHandler: PropTypes.func.isRequired,
 };
 
