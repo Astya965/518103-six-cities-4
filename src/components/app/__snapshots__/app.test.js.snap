@@ -901,7 +901,7 @@ exports[`Render App Render App without currentOffer 1`] = `
             <span
               className="places__sorting-caption"
             >
-              Sort by
+              Sort by 
             </span>
             <span
               className="places__sorting-type"
@@ -919,7 +919,8 @@ exports[`Render App Render App without currentOffer 1`] = `
               </svg>
             </span>
             <ul
-              className="places__options places__options--custom places__options--opened"
+              className="places__options places__options--custom
+        places__options--opened"
             >
               <li
                 className="places__option places__option--active"
@@ -928,19 +929,19 @@ exports[`Render App Render App without currentOffer 1`] = `
                 Popular
               </li>
               <li
-                className="places__option"
+                className="places__option "
                 tabIndex="0"
               >
                 Price: low to high
               </li>
               <li
-                className="places__option"
+                className="places__option "
                 tabIndex="0"
               >
                 Price: high to low
               </li>
               <li
-                className="places__option"
+                className="places__option "
                 tabIndex="0"
               >
                 Top rated first
