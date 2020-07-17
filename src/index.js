@@ -8,9 +8,9 @@ import App from "./components/app/app.jsx";
 import {offers} from "./mocks/offer.js";
 import {reviews} from "./mocks/review.js";
 
-import reducer from "./reducers/reducer.js";
-import {ActionCreator as DataActionCreator} from './reducers/data/data.js';
-import {ActionCreator as ReviewsActionCreator} from './reducers/reviews/reviews.js';
+import reducer from "./store/reducer.js";
+import {ActionCreator as DataActionCreator} from './store/data/data.js';
+import {ActionCreator as ReviewsActionCreator} from './store/reviews/reviews.js';
 
 const store = createStore(
     reducer,
