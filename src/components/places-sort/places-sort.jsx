@@ -4,12 +4,12 @@ import PropTypes from "prop-types";
 import {SORTS} from "../../utils/constants.js";
 
 const PlacesSort = (props) => {
-  const {isOpened} = props;
+  const {isActive: isOpened, onActiveChange: onSortClick} = props;
 
   return (
     <form className="places__sorting" action="#" method="get">
       <span className="places__sorting-caption">Sort by&nbsp;</span>
-      <span className="places__sorting-type" tabIndex="0">
+      <span className="places__sorting-type" tabIndex="0" onClick={onSortClick}>
         Popular
         <svg className="places__sorting-arrow" width="7" height="4">
           <use xlinkHref="#icon-arrow-select"></use>
@@ -30,12 +30,9 @@ const PlacesSort = (props) => {
   );
 };
 
-PlacesSort.defaultProps = {
-  isOpened: true,
-};
-
 PlacesSort.propTypes = {
-  isOpened: PropTypes.bool.isRequired,
+  isActive: PropTypes.bool.isRequired,
+  onActiveChange: PropTypes.func.isRequired,
 };
 
 export default PlacesSort;

@@ -9,6 +9,10 @@ import PlacesSort from "../places-sort/places-sort.jsx";
 import PlacesMap from "../places-map/places-map.jsx";
 import PlacesList from "../places-list/places-list.jsx";
 
+import withStatus from "../../hocks/with-status/with-status.jsx";
+
+const PlacesSortWrapped = withStatus(PlacesSort);
+
 const Main = (props) => {
   const {offers, cities, city, onCityNameClick} = props;
 
@@ -47,7 +51,7 @@ const Main = (props) => {
             <section className="cities__places places">
               <h2 className="visually-hidden">Places</h2>
               <b className="places__found">{offers.length} places to stay in {city}</b>
-              <PlacesSort />
+              <PlacesSortWrapped />
               <PlacesList offers={offers}
                 viewMode={ViewMode.Main} />
             </section>
