@@ -10,10 +10,10 @@ const withStatus = (Component) => {
         isActive: false,
       };
 
-      this._handelActiveChange = this._handelActiveChange.bind(this);
+      this._handleActiveChange = this._handleActiveChange.bind(this);
     }
 
-    _handelActiveChange() {
+    _handleActiveChange() {
       this.setState(
           (prevState) => ({isActive: !prevState.isActive})
       );
@@ -24,7 +24,7 @@ const withStatus = (Component) => {
         <Component
           {...this.props}
           isActive={this.state.isActive}
-          onActiveChange={this._handelActiveChange}
+          onActiveChange={this._handleActiveChange}
         />
       );
     }
