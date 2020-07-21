@@ -9,7 +9,7 @@ import PlacesMap from "../places-map/places-map.jsx";
 import NearPlaces from "../near-places/near-places.jsx";
 
 import {getNearby} from "../../store/nearby/selectors.js";
-import {getReviews} from "../../store/reviews/selector.js";
+import {getReviews} from "../../store/reviews/selectors.js";
 
 import {offerShape, reviewShape} from "../../utils/prop-types.js";
 import {memoize} from "../../utils/utils.js";

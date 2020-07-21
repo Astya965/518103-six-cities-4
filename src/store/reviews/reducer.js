@@ -1,18 +1,8 @@
 import {extendObject} from "../../utils/utils.js";
+import {ActionType} from "./actions.js";
 
 const initialState = {
   reviews: []
-};
-
-export const ActionType = {
-  LOAD_REVIEWS: `LOAD_REVIEWS`,
-};
-
-export const ActionCreator = {
-  loadReviews: (reviews) => ({
-    type: ActionType.LOAD_REVIEWS,
-    payload: reviews,
-  }),
 };
 
 export const reducer = (state = initialState, action) => {
