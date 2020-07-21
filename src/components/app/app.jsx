@@ -3,11 +3,18 @@ import PropTypes from "prop-types";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import {connect} from 'react-redux';
 
+<<<<<<< HEAD
 import {ActionCreator as CitiesActionCreator} from "../../store/cities/actions.js";
 import {ActionCreator as ReviewsActionCreator} from "../../store/reviews/actions.js";
 import {ActionCreator as OffersActionCreator} from "../../store/offers/actions.js";
 import {getCurrentOffers, getCurrentOffer} from "../../store/offers/selectors.js";
 import {getCurrentCity, getCities} from "../../store/cities/selectors.js";
+=======
+import {ActionCreator} from "../../store/cities/cities.js";
+import {getReviews} from "../../store/reviews/selector.js";
+import {getCurrentOffers} from "../../store/data/selector.js";
+import {getCurrentOffer, getCurrentCity, getCities} from "../../store/cities/selector.js";
+>>>>>>> style(5-2): fix typo
 
 import {offers as loadedOffers} from "../../mocks/offer.js";
 import {CITIES} from "../../utils/constants.js";

@@ -1,5 +1,5 @@
 import {extendObject} from "../../utils/utils.js";
-import {CITIES} from "../../utils/constants.js";
+import {CITIES, SortType} from "../../utils/constants.js";
 
 const initialState = {
   cities: CITIES,
@@ -25,7 +25,7 @@ export const ActionCreator = {
     payload: offer
   }),
 
-  setCurrenrSort: (sort) => ({
+  setCurrentSort: (sort) => ({
     type: ActionType.SET_CURRENT_SORT,
     payload: sort,
   }),
