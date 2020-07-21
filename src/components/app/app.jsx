@@ -5,7 +5,7 @@ import {connect} from 'react-redux';
 
 import {ActionCreator} from "../../store/cities/cities.js";
 import {getReviews} from "../../store/reviews/selector.js";
-import {getCurrentOffers} from "../../store/data/selector.js";
+import {getCurrentOffers} from "../../store/offers/selector.js";
 import {getCurrentOffer, getCurrentCity, getCities} from "../../store/cities/selector.js";
 
 import {CITIES} from "../../utils/constants.js";

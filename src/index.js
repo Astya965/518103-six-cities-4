@@ -9,7 +9,7 @@ import {offers} from "./mocks/offer.js";
 import {reviews} from "./mocks/review.js";
 
 import reducer from "./store/reducer.js";
-import {ActionCreator as DataActionCreator} from './store/data/data.js';
+import {ActionCreator as DataActionCreator} from './store/offers/offers.js';
 import {ActionCreator as ReviewsActionCreator} from './store/reviews/reviews.js';
 
 const store = createStore(
