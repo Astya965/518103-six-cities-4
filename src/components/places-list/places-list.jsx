@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import PropTypes from "prop-types";
 import {connect} from 'react-redux';
 
-import {ActionCreator} from "../../store/cities/cities.js";
+import {ActionCreator} from "../../store/cities/actions.js";
 import {offerShape} from "../../utils/prop-types.js";
 import {ViewMode, VIEWMODES} from "../../utils/constants.js";
 

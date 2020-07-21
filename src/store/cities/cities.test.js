@@ -1,4 +1,6 @@
-import {reducer, ActionCreator, ActionType} from "./cities.js";
+import {ActionCreator, ActionType} from "./actions.js";
+import {reducer} from "./reducer.js";
+
 import {testOffer} from "../../mocks/test-mocks.js";
 import {CITIES} from "../../utils/constants.js";
 

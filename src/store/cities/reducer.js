@@ -1,28 +1,11 @@
 import {extendObject} from "../../utils/utils.js";
 import {CITIES} from "../../utils/constants.js";
+import {ActionType} from "./actions.js";
 
 const initialState = {
   cities: CITIES,
   currentCity: CITIES[0],
   currentOffer: null,
-};
-
-export const ActionType = {
-  SET_CURRENT_CITY: `SET_CURRENT_CITY`,
-  SET_CURRENT_OFFER: `SET_CURRENT_OFFER`,
-};
-
-export const ActionCreator = {
-  setCurrentCity: (city) => ({
-    type: ActionType.SET_CURRENT_CITY,
-    payload: city,
-  }),
-
-  setCurrentOffer: (offer) => ({
-    type: ActionType.SET_CURRENT_OFFER,
-    payload: offer
-  }),
-
 };
 
 export const reducer = (state = initialState, action) => {

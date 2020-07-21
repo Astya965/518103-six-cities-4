@@ -1,7 +1,7 @@
 import {createSelector} from "reselect";
 import NameSpace from "../name-space.js";
 
-import {getCurrentCity} from "../cities/selector.js";
+import {getCurrentCity} from "../cities/selectors.js";
 
 const getOffers = (state) => (state[NameSpace.OFFERS].offers);
 

@@ -3,9 +3,9 @@ import PropTypes from "prop-types";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import {connect} from 'react-redux';
 
-import {ActionCreator} from "../../store/cities/cities.js";
+import {ActionCreator} from "../../store/cities/actions.js";
 import {getCurrentOffers} from "../../store/offers/selector.js";
-import {getCurrentOffer, getCurrentCity, getCities} from "../../store/cities/selector.js";
+import {getCurrentOffer, getCurrentCity, getCities} from "../../store/cities/selectors.js";
 
 import {CITIES} from "../../utils/constants.js";
 import {offerShape} from "../../utils/prop-types.js";
