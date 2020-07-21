@@ -5,14 +5,16 @@ import {ActionCreator} from "../../store/cities/cities.js";
 import {getCurrentSort} from "../../store/cities/selector.js";
 
 import {SORTS} from "../../utils/constants.js";
-import { ActionCreator } from "../../store/cities/cities.js";
+import {memoize} from "../../utils/utils.js";
+
+const memorizedSortType = memoize((activeSort) => SORTS.find((sort) => sort.type === activeSort));
 
 const PlacesSort = (props) => {
   const {isActive: isOpened, onActiveChange: onSortClick, currentSort, setCurrentSort} = props;
   const onSortItemClick = (sort) => setCurrentSort(sort);
 
-  const handleSortChange = () => {
-    onSortItemClick();
+  const handleSortChange = (option) => () => {
+    onSortItemClick(option.type);
     onSortClick();
   };
 
@@ -20,7 +22,7 @@ const PlacesSort = (props) => {
     <form className="places__sorting" action="#" method="get">
       <span className="places__sorting-caption">Sort by&nbsp;</span>
       <span className="places__sorting-type" tabIndex="0" onClick={onSortClick}>
-        Popular
+        {memorizedSortType(currentSort).text}
         <svg className="places__sorting-arrow" width="7" height="4">
           <use xlinkHref="#icon-arrow-select"></use>
         </svg>
@@ -30,7 +32,7 @@ const PlacesSort = (props) => {
         {SORTS.map((option, i) => {
           return (
             <li className={`places__option ${i === 0 ? `places__option--active` : ``}`}
-              tabIndex="0" key={option.type} onClick={handleSortChange}>
+              tabIndex="0" key={option.type} onClick={handleSortChange(option)}>
               {option.text}
             </li>
           );
