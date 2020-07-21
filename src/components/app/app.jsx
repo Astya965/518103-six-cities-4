@@ -6,7 +6,7 @@ import {connect} from 'react-redux';
 import {ActionCreator} from "../../store/cities/cities.js";
 import {getReviews} from "../../store/reviews/selector.js";
 import {getCurrentOffers} from "../../store/data/selector.js";
-import {getCurrentOffer, getActiveCity, getCities} from "../../store/cities/selector.js";
+import {getCurrentOffer, getCurrentCity, getCities} from "../../store/cities/selector.js";
 
 import {CITIES} from "../../utils/constants.js";
 import {offerShape, reviewShape} from "../../utils/prop-types.js";
@@ -19,7 +19,8 @@ class App extends Component {
   }
 
   render() {
-    const {offers, currentOffer, reviews, cities, currentCity, onCityNameClick} = this.props;
+    const {offers, currentOffer, reviews, cities, currentCity, setCurrrentCity} = this.props;
+    const onCityNameClick = (city) => setCurrrentCity(city);
 
     return (
       <Router>
@@ -53,14 +54,12 @@ const mapStateToProps = (state) => ({
   reviews: getReviews(state),
   cities: getCities(state),
   currentOffer: getCurrentOffer(state),
-  currentCity: getActiveCity(state),
+  currentCity: getCurrentCity(state),
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  onCityNameClick(city) {
-    dispatch(ActionCreator.setCurrentCity(city));
-  }
-});
+const mapDispatchToProps = {
+  setCurrentCity: ActionCreator.setCurrentCity,
+};
 
 App.propTypes = {
   offers: PropTypes.arrayOf(PropTypes.shape(offerShape)).isRequired,

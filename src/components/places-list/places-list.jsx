@@ -8,7 +8,7 @@ import {ViewMode, VIEWMODES} from "../../utils/constants.js";
 
 import PlaceCard from "../place-card/place-card.jsx";
 
-class PlacesList extends Component {
+export class PlacesList extends Component {
   constructor(props) {
     super(props);
 
@@ -27,7 +27,8 @@ class PlacesList extends Component {
   }
 
   render() {
-    const {offers, viewMode, onPlaceHeaderClick} = this.props;
+    const {offers, viewMode, setCurrentOffer} = this.props;
+    const onPlaceHeaderClick = (offer) => setCurrentOffer(offer);
 
     const isMainView = viewMode === ViewMode.Main;
 
@@ -50,11 +51,9 @@ class PlacesList extends Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) => ({
-  onPlaceHeaderClick(offer) {
-    dispatch(ActionCreator.setCurrentOffer(offer));
-  },
-});
+const mapDispatchToProps = {
+  setCurrentOffer: ActionCreator.setCurrentOffer,
+};
 
 PlacesList.propTypes = {
   offers: PropTypes.arrayOf(PropTypes.shape(offerShape)).isRequired,
@@ -62,5 +61,4 @@ PlacesList.propTypes = {
   onPlaceHeaderClick: PropTypes.func.isRequired,
 };
 
-export {PlacesList};
-export default connect(() => ({}), mapDispatchToProps)(PlacesList);
+export default connect(null, mapDispatchToProps)(PlacesList);
