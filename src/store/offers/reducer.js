@@ -1,18 +1,8 @@
 import {extendObject} from "../../utils/utils.js";
+import {ActionType} from "./actions.js";
 
 const initialState = {
   offers: [],
-};
-
-export const ActionType = {
-  LOAD_OFFERS: `LOAD_OFFERS`,
-};
-
-export const ActionCreator = {
-  loadOffers: (offers) => ({
-    type: ActionType.LOAD_OFFERS,
-    payload: offers,
-  }),
 };
 
 export const reducer = (state = initialState, action) => {

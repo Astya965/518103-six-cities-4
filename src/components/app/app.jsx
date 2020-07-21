@@ -4,7 +4,7 @@ import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import {connect} from 'react-redux';
 
 import {ActionCreator} from "../../store/cities/actions.js";
-import {getCurrentOffers} from "../../store/offers/selector.js";
+import {getCurrentOffers} from "../../store/offers/selectors.js";
 import {getCurrentOffer, getCurrentCity, getCities} from "../../store/cities/selectors.js";
 
 import {CITIES} from "../../utils/constants.js";
