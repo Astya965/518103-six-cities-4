@@ -1,4 +1,5 @@
-import {reducer, ActionCreator, ActionType} from "./nearby.js";
+import {ActionCreator, ActionType} from "./actions.js";
+import {reducer} from "./reducer.js";
 import {testOffers} from "../../mocks/test-mocks.js";
 
 describe(`Reducer work correctly`, () => {

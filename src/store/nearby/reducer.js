@@ -1,18 +1,8 @@
 import {extendObject} from "../../utils/utils.js";
+import {ActionType} from "./actions.js";
 
 const initialState = {
   nearby: [],
-};
-
-export const ActionType = {
-  LOAD_NEARBY_OFFERS: `LOAD_NEAR_OFFERS`,
-};
-
-export const ActionCreator = {
-  loadNearOffers: (offers) => ({
-    type: ActionType.LOAD_NEARBY_OFFERS,
-    payload: offers,
-  }),
 };
 
 export const reducer = (state = initialState, action) => {

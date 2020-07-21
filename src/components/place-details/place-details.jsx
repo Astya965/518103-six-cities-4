@@ -8,7 +8,7 @@ import ReviewsList from "../reviews-list/reviews-list.jsx";
 import PlacesMap from "../places-map/places-map.jsx";
 import NearPlaces from "../near-places/near-places.jsx";
 
-import {getNearby} from "../../store/nearby/selector.js";
+import {getNearby} from "../../store/nearby/selectors.js";
 import {getReviews} from "../../store/reviews/selector.js";
 
 import {offerShape, reviewShape} from "../../utils/prop-types.js";
