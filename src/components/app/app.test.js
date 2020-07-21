@@ -4,23 +4,11 @@ import {Provider} from "react-redux";
 import configureStore from "redux-mock-store";
 
 import App from "./app.jsx";
-import {testOffers, testReviews} from "../../mocks/test-mocks.js";
+import {testOffers, testReviews, testStore} from "../../mocks/test-mocks.js";
 import {CITIES} from "../../utils/constants.js";
 
 const mockStore = configureStore([]);
-const store = mockStore({
-  CITIES: {
-    cities: CITIES,
-    currentCity: CITIES[0],
-    currentOffer: null,
-  },
-  DATA: {
-    offers: testOffers,
-  },
-  REVIEWS: {
-    reviews: testReviews
-  }
-});
+const store = mockStore(testStore);
 
 it(`Render App`, () => {
   const tree = renderer.

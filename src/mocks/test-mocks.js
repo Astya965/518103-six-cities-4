@@ -186,3 +186,17 @@ export const testReview = {
     name: `Leo`,
   }
 };
+
+export const testStore = {
+  CITIES: {
+    cities: CITIES,
+    currentCity: CITIES[0],
+    currentOffer: null,
+  },
+  DATA: {
+    offers: testOffers,
+  },
+  REVIEWS: {
+    reviews: testReviews
+  }
+};
