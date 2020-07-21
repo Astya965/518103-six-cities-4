@@ -20,7 +20,7 @@ it(`Render App`, () => {
             cities={CITIES}
             currentCity={CITIES[0]}
             reviews={testReviews}
-            onCityNameClick={() => {}}/>
+            setCurrentCity={() => {}}/>
         </Provider>
     ).toJSON();
 

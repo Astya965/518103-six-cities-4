@@ -1,8 +1,9 @@
 import {createSelector} from "reselect";
 import NameSpace from "../name-space.js";
 
+import {getCurrentCity} from "../cities/selector.js";
+
 const getOffers = (state) => (state[NameSpace.OFFERS].offers);
-const getCurrentCity = (state) => (state[NameSpace.CITIES].currentCity);
 
 export const getCurrentOffers = createSelector(
     getOffers,
@@ -13,3 +14,4 @@ export const getCurrentOffers = createSelector(
       return result;
     }
 );
+

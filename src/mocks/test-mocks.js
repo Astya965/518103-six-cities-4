@@ -195,7 +195,7 @@ export const testStore = {
     currentCity: CITIES[0],
     currentOffer: null,
   },
-  DATA: {
+  OFFERS: {
     offers: testOffers,
   },
   REVIEWS: {
