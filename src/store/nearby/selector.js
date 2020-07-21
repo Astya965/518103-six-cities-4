@@ -1,5 +1,13 @@
+import {createSelector} from "reselect";
 import NameSpace from "../name-space.js";
 
 import {MAX_NEARBY_OFFERS_COUNT} from "../../utils/constants.js";
 
-export const getNearby = (state) => (state[NameSpace.NEARBY].nearby.slice(0, MAX_NEARBY_OFFERS_COUNT));
+const getAllNearby = (state) => (state[NameSpace.REVIEWS].reviews);
+
+export const getNearby = createSelector(
+  getAllNearby,
+  (nearby) => {
+    return nearby.slice(0, MAX_NEARBY_OFFERS_COUNT);
+  }
+);
