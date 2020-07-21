@@ -81,7 +81,7 @@ export const extendObject = (a, b) => Object.assign({}, a, b);
 /**
  * Получение массива уникальных значений на основе определенного критерия
  * @param {Array} arr - Проверяемый массив
- * @param {Function} predicate - Критерий отбора значений; Принимает одно зачение!
+ * @param {Any} predicate - Критерий отбора значений; Принимает одно зачение!
  * @return {Array} Массив уникальных значений на основе определенного критерия
  */
 export const uniqBy = (arr, predicate) => {

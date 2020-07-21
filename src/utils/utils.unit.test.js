@@ -68,10 +68,6 @@ describe((`uniqBy tests`), () => {
     {id: 2, name: `Ann`},
   ];
 
-  beforeEach(() => {
-    jest.clearAllMocks();
-  });
-
   it(`uniqBy function should return array with uniq value, which filter by id`, () => {
     expect(uniqBy(testArr, `id`)).toEqual([{id: 1, name: `Alice`}, {id: 2, name: `Max`}]);
   });
