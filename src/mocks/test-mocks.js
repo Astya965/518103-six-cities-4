@@ -202,3 +202,17 @@ export const testStore = {
     reviews: testReviews
   }
 };
+
+export const testStoreWithCurrentOffer = {
+  CITIES: {
+    cities: CITIES,
+    currentCity: CITIES[3],
+    currentOffer: testOffer,
+  },
+  OFFERS: {
+    offers: testOffers,
+  },
+  REVIEWS: {
+    reviews: testReviews
+  }
+};
