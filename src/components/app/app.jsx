@@ -19,8 +19,8 @@ class App extends Component {
   }
 
   render() {
-    const {offers, currentOffer, reviews, cities, currentCity, setCurrrentCity} = this.props;
-    const onCityNameClick = (city) => setCurrrentCity(city);
+    const {offers, currentOffer, reviews, cities, currentCity, setCurrentCity} = this.props;
+    const onCityNameClick = (city) => setCurrentCity(city);
 
     return (
       <Router>
@@ -67,7 +67,7 @@ App.propTypes = {
   cities: PropTypes.arrayOf(PropTypes.oneOf(CITIES)).isRequired,
   currentCity: PropTypes.oneOf(CITIES).isRequired,
   reviews: PropTypes.arrayOf(PropTypes.shape(reviewShape)).isRequired,
-  onCityNameClick: PropTypes.func.isRequired,
+  setCurrentCity: PropTypes.func.isRequired,
 };
 
 export {App};

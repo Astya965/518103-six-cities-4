@@ -1,3 +1,5 @@
+import {CITIES} from "../utils/constants.js";
+
 export const testOffers = [
   {
     id: `1`,
