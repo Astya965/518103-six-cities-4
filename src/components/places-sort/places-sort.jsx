@@ -1,10 +1,20 @@
 import React from "react";
 import PropTypes from "prop-types";
+import {connect} from "react-redux";
+import {ActionCreator} from "../../store/cities/cities.js";
+import {getCurrentSort} from "../../store/cities/selector.js";
 
 import {SORTS} from "../../utils/constants.js";
+import { ActionCreator } from "../../store/cities/cities.js";
 
 const PlacesSort = (props) => {
-  const {isActive: isOpened, onActiveChange: onSortClick} = props;
+  const {isActive: isOpened, onActiveChange: onSortClick, currentSort, setCurrentSort} = props;
+  const onSortItemClick = (sort) => setCurrentSort(sort);
+
+  const handleSortChange = () => {
+    onSortItemClick();
+    onSortClick();
+  };
 
   return (
     <form className="places__sorting" action="#" method="get">
@@ -20,7 +30,7 @@ const PlacesSort = (props) => {
         {SORTS.map((option, i) => {
           return (
             <li className={`places__option ${i === 0 ? `places__option--active` : ``}`}
-              tabIndex="0" key={option.type}>
+              tabIndex="0" key={option.type} onClick={handleSortChange}>
               {option.text}
             </li>
           );
@@ -30,9 +40,18 @@ const PlacesSort = (props) => {
   );
 };
 
+const mapStateToProps = (state) => ({
+  currentSort: getCurrentSort(state),
+});
+
+const mapDispatchToProps = {
+  setCurrentSort: ActionCreator.setCurrentSort,
+};
+
 PlacesSort.propTypes = {
   isActive: PropTypes.bool.isRequired,
   onActiveChange: PropTypes.func.isRequired,
 };
 
-export default PlacesSort;
+export {PlacesSort};
+export default connect(mapStateToProps, mapDispatchToProps)(PlacesSort);
