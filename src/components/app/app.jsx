@@ -4,12 +4,11 @@ import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import {connect} from 'react-redux';
 
 import {ActionCreator} from "../../store/cities/cities.js";
-import {getReviews} from "../../store/reviews/selector.js";
 import {getCurrentOffers} from "../../store/offers/selector.js";
 import {getCurrentOffer, getCurrentCity, getCities} from "../../store/cities/selector.js";
 
 import {CITIES} from "../../utils/constants.js";
-import {offerShape, reviewShape} from "../../utils/prop-types.js";
+import {offerShape} from "../../utils/prop-types.js";
 import Main from "../main/main.jsx";
 import PlaceDetails from "../place-details/place-details.jsx";
 
@@ -19,7 +18,7 @@ class App extends Component {
   }
 
   render() {
-    const {offers, currentOffer, reviews, cities, currentCity, setCurrentCity} = this.props;
+    const {offers, currentOffer, cities, currentCity, setCurrentCity} = this.props;
     const onCityNameClick = (city) => setCurrentCity(city);
 
     return (
@@ -29,8 +28,7 @@ class App extends Component {
             {currentOffer !== null ?
               <PlaceDetails offer={currentOffer}
                 offers={offers}
-                city={currentCity}
-                reviews={reviews} /> :
+                city={currentCity} /> :
               <Main offers={offers}
                 cities={cities}
                 city={currentCity}
@@ -40,8 +38,7 @@ class App extends Component {
           <Route exact path="/dev-component">
             <PlaceDetails offer={offers[0]}
               offers={offers}
-              city={currentCity}
-              reviews={reviews} />
+              city={currentCity} />
           </Route>
         </Switch>
       </Router>
@@ -51,7 +48,6 @@ class App extends Component {
 
 const mapStateToProps = (state) => ({
   offers: getCurrentOffers(state),
-  reviews: getReviews(state),
   cities: getCities(state),
   currentOffer: getCurrentOffer(state),
   currentCity: getCurrentCity(state),
@@ -66,7 +62,6 @@ App.propTypes = {
   currentOffer: PropTypes.shape(offerShape),
   cities: PropTypes.arrayOf(PropTypes.oneOf(CITIES)).isRequired,
   currentCity: PropTypes.oneOf(CITIES).isRequired,
-  reviews: PropTypes.arrayOf(PropTypes.shape(reviewShape)).isRequired,
   setCurrentCity: PropTypes.func.isRequired,
 };
 
