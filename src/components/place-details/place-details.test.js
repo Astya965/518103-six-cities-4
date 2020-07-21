@@ -4,12 +4,12 @@ import {Provider} from "react-redux";
 import configureStore from "redux-mock-store";
 
 import PlaceDetails from "./place-details.jsx";
-import {testOffer, testOffers, testReviews} from "../../mocks/test-mocks.js";
+import {testOffer, testOffers, testReviews, testStoreWithCurrentOffer} from "../../mocks/test-mocks.js";
 
 const mockStore = configureStore([]);
 
 it(`Render PlaceDetails`, () => {
-  const store = mockStore({});
+  const store = mockStore(testStoreWithCurrentOffer);
 
   const tree = renderer.
     create(
