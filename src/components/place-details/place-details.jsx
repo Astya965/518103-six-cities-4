@@ -29,7 +29,7 @@ const PlaceDetails = (props) => {
             <ReviewsList reviews={slicedReviews}/>
           </div>
         </div>
-        <PlacesMap offers={nearOffers} activeOffer={offer} city={offers[0].city} viewMode={ViewMode.PlaceDetails}/>
+        <PlacesMap offers={nearOffers} activeOffer={offer} city={offer.city} viewMode={ViewMode.PlaceDetails}/>
       </section>
       <NearPlaces offers={nearOffers} viewMode={ViewMode.PlaceDetails}/>
     </main>
