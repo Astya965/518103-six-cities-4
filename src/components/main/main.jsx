@@ -4,8 +4,12 @@ import PropTypes from "prop-types";
 import {offerShape} from "../../utils/prop-types.js";
 import {CITIES} from "../../utils/constants.js";
 
+import withHover from "../../hocks/with-hover/with-hover.jsx";
+
 import Locations from "../locations/locations.jsx";
 import PlacesContainer from "../places-container/places-container.jsx";
+
+const PlacesContainerWrapped = withHover(PlacesContainer);
 
 const Main = (props) => {
   const {offers, cities, city, onCityNameClick} = props;
@@ -40,7 +44,7 @@ const Main = (props) => {
         <div className="tabs">
           <Locations cities={cities} activeCity={city} onCityNameClick={onCityNameClick}/>
         </div>
-        <PlacesContainer offers={offers} city={city}/>
+        <PlacesContainerWrapped offers={offers} city={city}/>
       </main>
     </div>
   );

@@ -13,7 +13,7 @@ import {CITIES, ViewMode} from "../../utils/constants.js";
 const PlacesSortWrapped = withStatus(PlacesSort);
 
 const PlacesContainer = (props) => {
-  const {offers, city} = props;
+  const {offers, city, hoveredItem: hoveredOffer, onItemHover: onPlaceCardHover} = props;
 
   return (
     <div className="cities">
@@ -22,11 +22,13 @@ const PlacesContainer = (props) => {
           <h2 className="visually-hidden">Places</h2>
           <b className="places__found">{offers.length} places to stay in {city}</b>
           <PlacesSortWrapped />
-          <PlacesList offers={offers}
+          <PlacesList
+            offers={offers}
+            onPlaceCardHover={onPlaceCardHover}
             viewMode={ViewMode.Main} />
         </section>
         <div className="cities__right-section">
-          <PlacesMap offers={offers} viewMode={ViewMode.Main} city={offers[0].city}/>
+          <PlacesMap offers={offers} viewMode={ViewMode.Main} city={offers[0].city} activeOffer={hoveredOffer}/>
         </div>
       </div>
     </div>
@@ -36,6 +38,8 @@ const PlacesContainer = (props) => {
 PlacesContainer.propTypes = {
   offers: PropTypes.arrayOf(PropTypes.shape(offerShape)).isRequired,
   city: PropTypes.oneOf(CITIES).isRequired,
+  hoveredItem: PropTypes.shape(offerShape),
+  onItemHover: PropTypes.func.isRequired,
 };
 
 export default PlacesContainer;
