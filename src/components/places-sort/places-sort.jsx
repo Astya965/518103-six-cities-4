@@ -52,10 +52,7 @@ const mapDispatchToProps = {
 
 PlacesSort.propTypes = {
   isActive: PropTypes.bool.isRequired,
-  currentSort: PropTypes.shape({
-    type: PropTypes.string.isRequired,
-    text: PropTypes.string.isRequired,
-  }),
+  currentSort: PropTypes.string.isRequired,
   setCurrentSort: PropTypes.func.isRequired,
   onActiveChange: PropTypes.func.isRequired,
 };
