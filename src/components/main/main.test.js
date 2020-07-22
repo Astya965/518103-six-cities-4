@@ -5,13 +5,12 @@ import configureStore from "redux-mock-store";
 
 import Main from "./main.jsx";
 import {CITIES} from "../../utils/constants.js";
-import {testOffers} from "../../mocks/test-mocks.js";
+import {testOffers, testStore} from "../../mocks/test-mocks.js";
 
 const mockStore = configureStore([]);
+const store = mockStore(testStore);
 
 it(`Render Main`, () => {
-  const store = mockStore({});
-
   const tree = renderer.
     create(
         <Provider store={store}>

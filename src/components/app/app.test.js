@@ -4,10 +4,18 @@ import {Provider} from "react-redux";
 import configureStore from "redux-mock-store";
 
 import App from "./app.jsx";
+<<<<<<< HEAD
 import {testOffers, testOffer, testStore, testStoreWithCurrentOffer} from "../../mocks/test-mocks.js";
 import {CITIES} from "../../utils/constants.js";
 
 const mockStore = configureStore([]);
+=======
+import {testOffers, testReviews, testStore} from "../../mocks/test-mocks.js";
+import {CITIES} from "../../utils/constants.js";
+
+const mockStore = configureStore([]);
+const store = mockStore(testStore);
+>>>>>>> test(5-2): update tests
 
 describe(`Render App`, () => {
   it(`Render App without currentOffer`, () => {
