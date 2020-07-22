@@ -2,16 +2,10 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import {offerShape} from "../../utils/prop-types.js";
-import {ViewMode, CITIES} from "../../utils/constants.js";
+import {CITIES} from "../../utils/constants.js";
 
 import Locations from "../locations/locations.jsx";
-import PlacesSort from "../places-sort/places-sort.jsx";
-import PlacesMap from "../places-map/places-map.jsx";
-import PlacesList from "../places-list/places-list.jsx";
-
-import withStatus from "../../hocks/with-status/with-status.jsx";
-
-const PlacesSortWrapped = withStatus(PlacesSort);
+import PlacesContainer from "../places-container/places-container.jsx";
 
 const Main = (props) => {
   const {offers, cities, city, onCityNameClick} = props;
@@ -46,20 +40,7 @@ const Main = (props) => {
         <div className="tabs">
           <Locations cities={cities} activeCity={city} onCityNameClick={onCityNameClick}/>
         </div>
-        <div className="cities">
-          <div className="cities__places-container container">
-            <section className="cities__places places">
-              <h2 className="visually-hidden">Places</h2>
-              <b className="places__found">{offers.length} places to stay in {city}</b>
-              <PlacesSortWrapped />
-              <PlacesList offers={offers}
-                viewMode={ViewMode.Main} />
-            </section>
-            <div className="cities__right-section">
-              <PlacesMap offers={offers} viewMode={ViewMode.Main} city={offers[0].city}/>
-            </div>
-          </div>
-        </div>
+        <PlacesContainer offers={offers} city={city}/>
       </main>
     </div>
   );
