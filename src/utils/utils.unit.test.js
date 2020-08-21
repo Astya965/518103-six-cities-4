@@ -57,6 +57,23 @@ describe((`extendObject tests`), () => {
 
   });
 
+  it(`extendObject function should be a new object`, () => {
+    const nameObj = {
+      name: `Alice`
+    };
+    const ageObj = {
+      age: 42
+    };
+
+    expect(extendObject(nameObj, ageObj)).not.toBe({
+      nameObj
+    });
+    expect(extendObject(nameObj, ageObj)).not.toBe({
+      ageObj
+    });
+
+  });
+
 });
 
 describe((`uniqBy tests`), () => {
