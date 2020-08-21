@@ -12,7 +12,7 @@ import {getNearby} from "../../store/nearby/selectors.js";
 import {getReviews} from "../../store/reviews/selectors.js";
 
 import {offerShape, reviewShape} from "../../utils/prop-types.js";
-import {loadedReviews} from "../../mocks/review.js";
+import {reviews as loadedReviews} from "../../mocks/review.js";
 import {memoize} from "../../utils/utils.js";
 import {MAX_IMAGES_COUNT, MAX_REVIEWS_COUNT, ViewMode} from "../../utils/constants.js";
 
