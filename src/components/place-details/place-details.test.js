@@ -17,7 +17,8 @@ it(`Render PlaceDetails`, () => {
           <PlaceDetails
             offer={testOffer}
             offers={testOffers}
-            reviews={testReviews} />
+            reviews={testReviews}
+            loadReviews={() => {}} />
         </Provider>
     ).toJSON();
 

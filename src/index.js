@@ -6,11 +6,9 @@ import {Provider} from "react-redux";
 import App from "./components/app/app.jsx";
 
 import {offers} from "./mocks/offer.js";
-import {reviews} from "./mocks/review.js";
 
 import reducer from "./store/reducer.js";
 import {ActionCreator as DataActionCreator} from './store/offers/actions.js';
-import {ActionCreator as ReviewsActionCreator} from './store/reviews/actions.js';
 
 const store = createStore(
     reducer,
@@ -18,7 +16,6 @@ const store = createStore(
 );
 
 store.dispatch(DataActionCreator.loadOffers(offers));
-store.dispatch(ReviewsActionCreator.loadReviews(reviews));
 ReactDOM.render(
     <Provider store={store}>
       <App />

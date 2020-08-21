@@ -3,7 +3,8 @@ import PropTypes from "prop-types";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import {connect} from 'react-redux';
 
-import {ActionCreator} from "../../store/cities/actions.js";
+import {ActionCreator as CitiesActionCreator} from "../../store/cities/actions.js";
+import {ActionCreator as ReviewsActionCreator} from "../../store/reviews/actions.js";
 import {getCurrentOffers, getCurrentOffer} from "../../store/offers/selectors.js";
 import {getCurrentCity, getCities} from "../../store/cities/selectors.js";
 
@@ -17,11 +18,15 @@ class App extends Component {
     super(props);
 
     this.onCityNameClick = this.onCityNameClick.bind(this);
+    this.onReviewsLoad = this.onReviewsLoad.bind(this);
   }
 
   onCityNameClick(city) {
-    const {setCurrentCity} = this.props;
-    setCurrentCity(city);
+    this.props.setCurrentCity(city);
+  }
+
+  onReviewsLoad(reviews) {
+    this.props.loadReviews(reviews);
   }
 
   render() {
@@ -34,7 +39,8 @@ class App extends Component {
             {currentOffer !== null ?
               <PlaceDetails offer={currentOffer}
                 offers={offers}
-                city={currentCity} /> :
+                city={currentCity}
+                loadReviews={this.onReviewsLoad} /> :
               <Main offers={offers}
                 cities={cities}
                 city={currentCity}
@@ -44,7 +50,8 @@ class App extends Component {
           <Route exact path="/dev-component">
             <PlaceDetails offer={offers[0]}
               offers={offers}
-              city={currentCity} />
+              city={currentCity}
+              loadReviews={this.onReviewsLoad} />
           </Route>
         </Switch>
       </Router>
@@ -60,7 +67,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = {
-  setCurrentCity: ActionCreator.setCurrentCity,
+  setCurrentCity: CitiesActionCreator.setCurrentCity,
+  loadReviews: ReviewsActionCreator.loadReviews,
 };
 
 App.propTypes = {
@@ -69,6 +77,7 @@ App.propTypes = {
   cities: PropTypes.arrayOf(PropTypes.oneOf(CITIES)).isRequired,
   currentCity: PropTypes.oneOf(CITIES).isRequired,
   setCurrentCity: PropTypes.func.isRequired,
+  loadReviews: PropTypes.func.isRequired,
 };
 
 export {App};
