@@ -6,7 +6,7 @@ import {CITIES} from "../../utils/constants.js";
 
 describe(`Reducer work correctly`, () => {
   it(`Reducer without additional parameters should return initial state`, () => {
-    expect(reducer(void 0, {})).toEqual({
+    expect(reducer(undefined, {})).toEqual({
       cities: CITIES,
       currentCity: CITIES[0],
       currentOffer: null,
