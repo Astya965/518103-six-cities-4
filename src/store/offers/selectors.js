@@ -9,9 +9,7 @@ export const getCurrentOffers = createSelector(
     getOffers,
     getCurrentCity,
     (offers, city) => {
-      const result = offers.filter((offer) => (offer.city.name === city));
-
-      return result;
+      return offers.filter((offer) => (offer.city.name === city));
     }
 );
 
