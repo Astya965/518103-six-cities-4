@@ -16,6 +16,7 @@ export class PlacesList extends Component {
 
     this._handleCardPointerEnter = this._handleCardPointerEnter.bind(this);
     this._handleCardPointerLeave = this._handleCardPointerLeave.bind(this);
+    this.onPlaceHeaderClick = this.onPlaceHeaderClick.bind(this);
   }
 
   _handleCardPointerEnter(offer) {
@@ -26,9 +27,13 @@ export class PlacesList extends Component {
     this.setState({value: null});
   }
 
+  onPlaceHeaderClick(offer) {
+    const {setCurrentOffer} = this.props;
+    setCurrentOffer(offer);
+  }
+
   render() {
-    const {offers, viewMode, setCurrentOffer} = this.props;
-    const onPlaceHeaderClick = (offer) => setCurrentOffer(offer);
+    const {offers, viewMode} = this.props;
 
     const isMainView = viewMode === ViewMode.Main;
 
@@ -39,7 +44,7 @@ export class PlacesList extends Component {
         {offers.map((offer) => {
           return <PlaceCard
             offer={offer}
-            onPlaceHeaderClick={onPlaceHeaderClick}
+            onPlaceHeaderClick={this.onPlaceHeaderClick}
             handleCardPointerEnter = {this._handleCardPointerEnter}
             handleCardPointerLeave = {this._handleCardPointerLeave}
             key={offer.id}

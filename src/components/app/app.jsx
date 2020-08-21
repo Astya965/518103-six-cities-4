@@ -15,11 +15,17 @@ import PlaceDetails from "../place-details/place-details.jsx";
 class App extends Component {
   constructor(props) {
     super(props);
+
+    this.onCityNameClick = this.onCityNameClick.bind(this);
+  }
+
+  onCityNameClick(city) {
+    const {setCurrentCity} = this.props;
+    setCurrentCity(city);
   }
 
   render() {
-    const {offers, currentOffer, cities, currentCity, setCurrentCity} = this.props;
-    const onCityNameClick = (city) => setCurrentCity(city);
+    const {offers, currentOffer, cities, currentCity} = this.props;
 
     return (
       <Router>
@@ -32,7 +38,7 @@ class App extends Component {
               <Main offers={offers}
                 cities={cities}
                 city={currentCity}
-                onCityNameClick={onCityNameClick} />
+                onCityNameClick={this.onCityNameClick} />
             }
           </Route>
           <Route exact path="/dev-component">
