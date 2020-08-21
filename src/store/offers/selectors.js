@@ -3,6 +3,7 @@ import NameSpace from "../name-space.js";
 
 import {getCurrentCity} from "../cities/selectors.js";
 
+export const getCurrentOffer = (state) => (state[NameSpace.OFFERS].currentOffer);
 const getOffers = (state) => (state[NameSpace.OFFERS].offers);
 
 export const getCurrentOffers = createSelector(

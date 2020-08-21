@@ -1,8 +1,7 @@
 import {createSelector} from "reselect";
 
 import {MAX_NEARBY_OFFERS_COUNT} from "../../utils/constants.js";
-import {getCurrentOffers} from "../offers/selectors.js";
-import {getCurrentOffer} from "../cities/selectors.js";
+import {getCurrentOffers, getCurrentOffer} from "../offers/selectors.js";
 
 export const getNearby = createSelector(
     getCurrentOffers,

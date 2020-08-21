@@ -193,10 +193,10 @@ export const testStore = {
   CITIES: {
     cities: CITIES,
     currentCity: CITIES[0],
-    currentOffer: null,
   },
   OFFERS: {
     offers: testOffers,
+    currentOffer: null,
   },
   REVIEWS: {
     reviews: testReviews
@@ -207,10 +207,10 @@ export const testStoreWithCurrentOffer = {
   CITIES: {
     cities: CITIES,
     currentCity: CITIES[3],
-    currentOffer: testOffer,
   },
   OFFERS: {
     offers: testOffers,
+    currentOffer: testOffer,
   },
   REVIEWS: {
     reviews: testReviews
