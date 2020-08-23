@@ -37,7 +37,7 @@ describe((`memoize tests`), () => {
 
   it(`Same arrays are equal`, () => {
     expect(testMemoize(testArr1)).toBe(testMemoize(testArr1));
-  })
+  });
 
   it(`Different arrays are not equal`, () => {
     expect(testMemoize(testArr1)).not.toBe(testMemoize(testArr2));
