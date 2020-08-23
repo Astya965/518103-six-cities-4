@@ -8,7 +8,6 @@ const testArr1 = [1, 2, 3];
 const testArr2 = [4, 5, 6];
 
 describe(`getRatingPercentage tests`, () => {
-
   beforeEach(() => {
     jest.clearAllMocks();
   });
@@ -32,14 +31,13 @@ describe(`getRatingPercentage tests`, () => {
 });
 
 describe((`memoize tests`), () => {
-
   beforeEach(() => {
     jest.clearAllMocks();
   });
 
   it(`Same arrays are equal`, () => {
     expect(testMemoize(testArr1)).toBe(testMemoize(testArr1));
-  });
+  })
 
   it(`Different arrays are not equal`, () => {
     expect(testMemoize(testArr1)).not.toBe(testMemoize(testArr2));
@@ -47,14 +45,11 @@ describe((`memoize tests`), () => {
 });
 
 describe((`extendObject tests`), () => {
-
   it(`extendObject function should extend object`, () => {
-
     expect(extendObject({name: `Alice`}, {age: 42})).toEqual({
       name: `Alice`,
       age: 42
     });
-
   });
 
   it(`extendObject function should be a new object`, () => {
@@ -71,13 +66,10 @@ describe((`extendObject tests`), () => {
     expect(extendObject(nameObj, ageObj)).not.toBe({
       ageObj
     });
-
   });
-
 });
 
 describe((`uniqBy tests`), () => {
-
   const testArr = [
     {id: 1, name: `Alice`},
     {id: 2, name: `Max`},
@@ -96,6 +88,4 @@ describe((`uniqBy tests`), () => {
   it(`uniqBy function should return array with uniq value, without selection bias `, () => {
     expect(uniqBy(testArr)).toEqual([{id: 1, name: `Alice`}]);
   });
-
-
 });
