@@ -5,9 +5,11 @@ import {connect} from 'react-redux';
 
 import {ActionCreator as CitiesActionCreator} from "../../store/cities/actions.js";
 import {ActionCreator as ReviewsActionCreator} from "../../store/reviews/actions.js";
+import {ActionCreator as OffersActionCreator} from "../../store/offers/actions.js";
 import {getCurrentOffers, getCurrentOffer} from "../../store/offers/selectors.js";
 import {getCurrentCity, getCities} from "../../store/cities/selectors.js";
 
+import {offers as loadedOffers} from "../../mocks/offer.js";
 import {CITIES} from "../../utils/constants.js";
 import {offerShape} from "../../utils/prop-types.js";
 import Main from "../main/main.jsx";
@@ -21,6 +23,10 @@ class App extends Component {
     this.onReviewsLoad = this.onReviewsLoad.bind(this);
   }
 
+  componentDidMount() {
+    this.props.loadOffers(loadedOffers);
+  }
+
   onCityNameClick(city) {
     this.props.setCurrentCity(city);
   }
@@ -32,7 +38,7 @@ class App extends Component {
   render() {
     const {offers, currentOffer, cities, currentCity} = this.props;
 
-    return (
+    return offers.length > 0 ? (
       <Router>
         <Switch>
           <Route exact path="/">
@@ -55,7 +61,7 @@ class App extends Component {
           </Route>
         </Switch>
       </Router>
-    );
+    ) : ``;
   }
 }
 
@@ -69,6 +75,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = {
   setCurrentCity: CitiesActionCreator.setCurrentCity,
   loadReviews: ReviewsActionCreator.loadReviews,
+  loadOffers: OffersActionCreator.loadOffers,
 };
 
 App.propTypes = {
@@ -78,6 +85,7 @@ App.propTypes = {
   currentCity: PropTypes.oneOf(CITIES).isRequired,
   setCurrentCity: PropTypes.func.isRequired,
   loadReviews: PropTypes.func.isRequired,
+  loadOffers: PropTypes.func.isRequired,
 };
 
 export {App};
