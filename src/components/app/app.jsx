@@ -15,7 +15,7 @@ import {offerShape} from "../../utils/prop-types.js";
 import Main from "../main/main.jsx";
 import PlaceDetails from "../place-details/place-details.jsx";
 
-class App extends Component {
+export class App extends Component {
   constructor(props) {
     super(props);
 
@@ -61,7 +61,7 @@ class App extends Component {
           </Route>
         </Switch>
       </Router>
-    ) : ``;
+    ) : null;
   }
 }
 
@@ -88,5 +88,4 @@ App.propTypes = {
   loadOffers: PropTypes.func.isRequired,
 };
 
-export {App};
 export default connect(mapStateToProps, mapDispatchToProps)(App);
