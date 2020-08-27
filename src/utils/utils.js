@@ -11,7 +11,7 @@ export const getRandomNumber = (min, max) => {
 /**
  * Выбор случайного элемента массива
  * @param {Array} array
- * @return {Any} Случайный элемент массива
+ * @return {*} Случайный элемент массива
  */
 export const getRandomElement = (array) => {
   const randomIndex = getRandomNumber(0, array.length - 1);
@@ -81,7 +81,7 @@ export const extendObject = (a, b) => Object.assign({}, a, b);
 /**
  * Получение массива уникальных значений на основе определенного критерия
  * @param {Array} arr - Проверяемый массив
- * @param {Any} predicate - Критерий отбора значений; Принимает одно зачение!
+ * @param {*} predicate - Критерий отбора значений; Принимает одно зачение!
  * @return {Array} Массив уникальных значений на основе определенного критерия
  */
 export const uniqBy = (arr, predicate) => {
