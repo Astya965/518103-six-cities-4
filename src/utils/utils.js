@@ -11,7 +11,7 @@ export const getRandomNumber = (min, max) => {
 /**
  * Выбор случайного элемента массива
  * @param {Array} array
- * @return {Any} Случайный элемент массива
+ * @return {*} Случайный элемент массива
  */
 export const getRandomElement = (array) => {
   const randomIndex = getRandomNumber(0, array.length - 1);
@@ -68,4 +68,33 @@ export const memoize = (fn) => {
       return result;
     }
   };
+};
+
+/**
+ * Копирования значений всех собственных перечисляемых свойств исходных объектов (a и b) в целевой объект
+ * @param {Object} a - Исходный объект
+ * @param {Object} b - Исходный объект
+ * @return {Object} Получившийся целевой объект
+ */
+export const extendObject = (a, b) => Object.assign({}, a, b);
+
+/**
+ * Получение массива уникальных значений на основе определенного критерия
+ * @param {Array} arr - Проверяемый массив
+ * @param {*} predicate - Критерий отбора значений; Принимает одно зачение!
+ * @return {Array} Массив уникальных значений на основе определенного критерия
+ */
+export const uniqBy = (arr, predicate) => {
+  const cb = typeof predicate === `function` ? predicate : (o) => o[predicate];
+
+  return [...arr.reduce((map, item) => {
+    const key = (item === null || item === undefined) ?
+      item : cb(item);
+
+    if (!map.has(key)) {
+      map.set(key, item);
+    }
+
+    return map;
+  }, new Map()).values()];
 };

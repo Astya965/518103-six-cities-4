@@ -1,3 +1,5 @@
+import {CITIES} from "../utils/constants.js";
+
 export const testOffers = [
   {
     id: `1`,
@@ -64,7 +66,40 @@ export const testOffers = [
       },
       name: `Amsterdam`
     }
-  }
+  },
+  {
+    id: `3`,
+    isPremium: true,
+    isFavourite: true,
+    previewImage: `img/apartment-02.jpg`,
+    price: 155,
+    rating: 3.2,
+    type: `Hotel`,
+    title: `Test name-3`,
+    images: [`img/apartment-01.jpg`, `img/apartment-02.jpg`],
+    bedrooms: 3,
+    maxAdults: 4,
+    goods: [`Heating`, `Kitchen`, `Frigde`, `Washing machine`, `Dishwasher`],
+    host: {
+      avatarUrl: `img/avatar-max.jpg`,
+      id: `host-1`,
+      isPro: true,
+      name: `Maximum`,
+    },
+    description: [`Everything was fantastic. Location is excellent, very friendly staff, cleanliness flawless. I would definitely recommend this hotel to anyone.`],
+    location: {
+      latitude: 52.3909553943508,
+      longitude: 4.85309666406198,
+    },
+    city: {
+      location: {
+        latitude: 33.66094,
+        longitude: -95.55551,
+        zoom: 12
+      },
+      name: `Paris`,
+    }
+  },
 ];
 
 export const testOffer = {
@@ -151,5 +186,33 @@ export const testReview = {
     id: `host-3`,
     isPro: false,
     name: `Leo`,
+  }
+};
+
+export const testStore = {
+  CITIES: {
+    cities: CITIES,
+    currentCity: CITIES[0],
+  },
+  OFFERS: {
+    offers: testOffers,
+    currentOffer: null,
+  },
+  REVIEWS: {
+    reviews: testReviews
+  }
+};
+
+export const testStoreWithCurrentOffer = {
+  CITIES: {
+    cities: CITIES,
+    currentCity: CITIES[3],
+  },
+  OFFERS: {
+    offers: testOffers,
+    currentOffer: testOffer,
+  },
+  REVIEWS: {
+    reviews: testReviews
   }
 };

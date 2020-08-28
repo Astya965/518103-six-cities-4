@@ -1,57 +1,91 @@
 import React, {Component} from "react";
 import PropTypes from "prop-types";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import {connect} from 'react-redux';
 
-import {offerShape, reviewShape} from "../../utils/prop-types.js";
+import {ActionCreator as CitiesActionCreator} from "../../store/cities/actions.js";
+import {ActionCreator as ReviewsActionCreator} from "../../store/reviews/actions.js";
+import {ActionCreator as OffersActionCreator} from "../../store/offers/actions.js";
+import {getCurrentOffers, getCurrentOffer} from "../../store/offers/selectors.js";
+import {getCurrentCity, getCities} from "../../store/cities/selectors.js";
+
+import {offers as loadedOffers} from "../../mocks/offer.js";
+import {CITIES} from "../../utils/constants.js";
+import {offerShape} from "../../utils/prop-types.js";
 import Main from "../main/main.jsx";
 import PlaceDetails from "../place-details/place-details.jsx";
 
-class App extends Component {
+export class App extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      currentOffer: null
-    };
-
-    this.placeHeaderClickHandler = this.placeHeaderClickHandler.bind(this);
+    this.onCityNameClick = this.onCityNameClick.bind(this);
+    this.onReviewsLoad = this.onReviewsLoad.bind(this);
   }
 
-  placeHeaderClickHandler(offer) {
-    this.setState({
-      currentOffer: offer
-    });
+  componentDidMount() {
+    this.props.loadOffers(loadedOffers);
+  }
+
+  onCityNameClick(city) {
+    this.props.setCurrentCity(city);
+  }
+
+  onReviewsLoad(reviews) {
+    this.props.loadReviews(reviews);
   }
 
   render() {
-    const {offers, reviews} = this.props;
+    const {offers, currentOffer, cities, currentCity} = this.props;
 
-    return (
+    return offers.length > 0 ? (
       <Router>
         <Switch>
           <Route exact path="/">
-            {this.state.currentOffer ?
-              <PlaceDetails offer={this.state.currentOffer} offers={offers}
-                reviews={reviews}
-                placeHeaderClickHandler={this.placeHeaderClickHandler} /> :
+            {currentOffer !== null ?
+              <PlaceDetails offer={currentOffer}
+                offers={offers}
+                city={currentCity}
+                loadReviews={this.onReviewsLoad} /> :
               <Main offers={offers}
-                placeHeaderClickHandler={this.placeHeaderClickHandler} />
+                cities={cities}
+                city={currentCity}
+                onCityNameClick={this.onCityNameClick} />
             }
           </Route>
           <Route exact path="/dev-component">
-            <PlaceDetails offer={offers[0]} offers={offers}
-              reviews={reviews}
-              placeHeaderClickHandler={this.placeHeaderClickHandler} />
+            <PlaceDetails offer={offers[0]}
+              offers={offers}
+              city={currentCity}
+              loadReviews={this.onReviewsLoad} />
           </Route>
         </Switch>
       </Router>
-    );
+    ) : null;
   }
 }
 
-App.propTypes = {
-  offers: PropTypes.arrayOf(PropTypes.shape(offerShape)).isRequired,
-  reviews: PropTypes.arrayOf(PropTypes.shape(reviewShape)).isRequired,
+const mapStateToProps = (state) => ({
+  offers: getCurrentOffers(state),
+  cities: getCities(state),
+  currentOffer: getCurrentOffer(state),
+  currentCity: getCurrentCity(state),
+});
+
+const mapDispatchToProps = {
+  setCurrentCity: CitiesActionCreator.setCurrentCity,
+  loadReviews: ReviewsActionCreator.loadReviews,
+  loadOffers: OffersActionCreator.loadOffers,
 };
 
-export default App;
+App.propTypes = {
+  offers: PropTypes.arrayOf(PropTypes.shape(offerShape)).isRequired,
+  currentOffer: PropTypes.shape(offerShape),
+  cities: PropTypes.arrayOf(PropTypes.oneOf(CITIES)).isRequired,
+  currentCity: PropTypes.oneOf(CITIES).isRequired,
+  setCurrentCity: PropTypes.func.isRequired,
+  loadReviews: PropTypes.func.isRequired,
+  loadOffers: PropTypes.func.isRequired,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

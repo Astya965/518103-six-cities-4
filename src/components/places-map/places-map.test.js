@@ -10,7 +10,7 @@ describe(`Render PlacesMap`, () => {
   it(`Render PlacesMap with ViewMode.Main`, () => {
     const tree = renderer.
     create(
-        <PlacesMap offers={testOffers} viewMode={ViewMode.Main} activeOffer={testOffer} />
+        <PlacesMap offers={testOffers} viewMode={ViewMode.Main} activeOffer={testOffer} city={testOffers[0].city}/>
     ).toJSON();
 
     expect(tree).toMatchSnapshot();
@@ -19,7 +19,7 @@ describe(`Render PlacesMap`, () => {
   it(`Render PlacesMap with ViewMode.PlaceDetails`, () => {
     const tree = renderer.
     create(
-        <PlacesMap offers={testOffers} viewMode={ViewMode.PlaceDetails} activeOffer={testOffer} />
+        <PlacesMap offers={testOffers} viewMode={ViewMode.PlaceDetails} activeOffer={testOffer} city={testOffers[0].city}/>
     ).toJSON();
 
     expect(tree).toMatchSnapshot();
