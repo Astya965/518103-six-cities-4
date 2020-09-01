@@ -20,7 +20,7 @@ export const reducer = (state = initialState, action) => {
         currentOffer: action.payload,
       });
 
-      case ActionType.SET_CURRENT_SORT:
+    case ActionType.SET_CURRENT_SORT:
       return extendObject(state, {
         currentSort: action.payload,
       });

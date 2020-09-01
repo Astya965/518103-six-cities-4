@@ -197,6 +197,7 @@ export const testStore = {
   OFFERS: {
     offers: testOffers,
     currentOffer: null,
+    currentSort: SortType.DEFAULT,
   },
   REVIEWS: {
     reviews: testReviews

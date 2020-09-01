@@ -116,6 +116,7 @@ export default class PlacesMap extends Component {
       this._initMap();
     }
 
+
     if (prevActiveOffer === null) {
       const {newOffers, outdatedOffers} = this._compareMarkers(offers);
       this._clearMarkers(outdatedOffers);

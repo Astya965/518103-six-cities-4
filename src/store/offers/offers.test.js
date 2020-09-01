@@ -1,6 +1,7 @@
 import {ActionCreator, ActionType} from "./actions.js";
 import {reducer} from "./reducer.js";
 import {testOffers, testOffer} from "../../mocks/test-mocks.js";
+import {SortType} from "../../utils/constants.js";
 
 describe(`Reducer work correctly`, () => {
   it(`Reducer without additional parameters should return initial state`, () => {
