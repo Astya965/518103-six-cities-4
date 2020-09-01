@@ -124,11 +124,11 @@ export default class PlacesMap extends Component {
         newOffers.push(prevActiveOffer);
         this._addMarkers(newOffers);
       }
-  } else if (activeOffer) {
-    const {newOffers, outdatedOffers} = this._compareMarkers(offers);
-    outdatedOffers.push(activeOffer.id);
-    this._clearMarkers(outdatedOffers);
-    this._addMarkers(newOffers);
+    } else if (activeOffer) {
+      const {newOffers, outdatedOffers} = this._compareMarkers(offers);
+      outdatedOffers.push(activeOffer.id);
+      this._clearMarkers(outdatedOffers);
+      this._addMarkers(newOffers);
     }
   }
 
