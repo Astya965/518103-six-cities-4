@@ -7,6 +7,7 @@ describe(`Reducer work correctly`, () => {
     expect(reducer(undefined, {})).toEqual({
       offers: [],
       currentOffer: null,
+      currentSort: SortType.DEFAULT,
     });
   });
 
@@ -14,12 +15,14 @@ describe(`Reducer work correctly`, () => {
     expect(reducer({
       offers: [],
       currentOffer: null,
+      currentSort: SortType.DEFAULT,
     }, {
       type: ActionType.LOAD_OFFERS,
       payload: testOffers,
     })).toEqual({
       offers: testOffers,
       currentOffer: null,
+      currentSort: SortType.DEFAULT,
     });
   });
 
@@ -27,12 +30,29 @@ describe(`Reducer work correctly`, () => {
     expect(reducer({
       offers: [],
       currentOffer: null,
+      currentSort: SortType.DEFAULT,
     }, {
       type: ActionType.SET_CURRENT_OFFER,
       payload: testOffer,
     })).toEqual({
       offers: [],
       currentOffer: testOffer,
+      currentSort: SortType.DEFAULT,
+    });
+  });
+
+  it(`Reducer should set current sort by a given value`, () => {
+    expect(reducer({
+      offers: [],
+      currentOffer: null,
+      currentSort: SortType.DEFAULT,
+    }, {
+      type: ActionType.SET_CURRENT_SORT,
+      payload: SortType.TOP_RATED,
+    })).toEqual({
+      offers: [],
+      currentOffer: null,
+      currentSort: SortType.TOP_RATED,
     });
   });
 });
@@ -49,6 +69,13 @@ describe(`Action creators work correctly`, () => {
     expect(ActionCreator.setCurrentOffer(testOffer)).toEqual({
       type: ActionType.SET_CURRENT_OFFER,
       payload: testOffer,
+    });
+  });
+
+  it(`Action creator for setCurrentSort returns correct action`, () => {
+    expect(ActionCreator.setCurrentSort(SortType.TOP_RATED)).toEqual({
+      type: ActionType.SET_CURRENT_SORT,
+      payload: SortType.TOP_RATED,
     });
   });
 });

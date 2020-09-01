@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
-import {ActionCreator} from "../../store/cities/cities.js";
-import {getCurrentSort} from "../../store/cities/selector.js";
+import {ActionCreator} from "../../store/offers/actions.js";
+import {getCurrentSort} from "../../store/offers/selectors.js";
 
 import {SORTS} from "../../utils/constants.js";
 import {memoize} from "../../utils/utils.js";
