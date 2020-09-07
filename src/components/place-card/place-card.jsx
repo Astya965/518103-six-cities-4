@@ -5,17 +5,17 @@ import {offerShape} from "../../utils/prop-types.js";
 import {getRatingPercentage} from "../../utils/utils.js";
 
 const PlaceCard = (props) => {
-  const {offer, onPlaceHeaderClick, handleCardPointerEnter, handleCardPointerLeave} = props;
+  const {offer, onPlaceHeaderClick, onPlaceCardHover} = props;
   const {isPremium, isFavourite, previewImage, price, rating, type, title} = offer;
   const favouriteClass = isFavourite ? `place-card__bookmark-button--active` : ``;
 
   return (
     <article className="cities__place-card place-card"
       onPointerEnter={() => {
-        handleCardPointerEnter(offer);
+        onPlaceCardHover(offer);
       }}
       onPointerLeave={() => {
-        handleCardPointerLeave();
+        onPlaceCardHover(null);
       }}
     >
       {isPremium ?
@@ -61,8 +61,7 @@ const PlaceCard = (props) => {
 PlaceCard.propTypes = {
   offer: PropTypes.shape(offerShape).isRequired,
   onPlaceHeaderClick: PropTypes.func.isRequired,
-  handleCardPointerEnter: PropTypes.func.isRequired,
-  handleCardPointerLeave: PropTypes.func.isRequired,
+  onPlaceCardHover: PropTypes.func,
 };
 
 export default PlaceCard;

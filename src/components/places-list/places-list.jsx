@@ -13,18 +13,7 @@ export class PlacesList extends Component {
     super(props);
 
     this.state = {value: null};
-
-    this._handleCardPointerEnter = this._handleCardPointerEnter.bind(this);
-    this._handleCardPointerLeave = this._handleCardPointerLeave.bind(this);
     this.onPlaceHeaderClick = this.onPlaceHeaderClick.bind(this);
-  }
-
-  _handleCardPointerEnter(offer) {
-    this.setState({value: offer});
-  }
-
-  _handleCardPointerLeave() {
-    this.setState({value: null});
   }
 
   onPlaceHeaderClick(offer) {
@@ -33,7 +22,7 @@ export class PlacesList extends Component {
   }
 
   render() {
-    const {offers, viewMode} = this.props;
+    const {offers, viewMode, onPlaceCardHover} = this.props;
 
     const isMainView = viewMode === ViewMode.Main;
 
@@ -45,8 +34,7 @@ export class PlacesList extends Component {
           return <PlaceCard
             offer={offer}
             onPlaceHeaderClick={this.onPlaceHeaderClick}
-            handleCardPointerEnter = {this._handleCardPointerEnter}
-            handleCardPointerLeave = {this._handleCardPointerLeave}
+            onPlaceCardHover = {isMainView ? onPlaceCardHover : () => {}}
             key={offer.id}
           />;
         })}
@@ -64,6 +52,7 @@ PlacesList.propTypes = {
   offers: PropTypes.arrayOf(PropTypes.shape(offerShape)).isRequired,
   viewMode: PropTypes.oneOf(VIEWMODES).isRequired,
   setCurrentOffer: PropTypes.func.isRequired,
+  onPlaceCardHover: PropTypes.func,
 };
 
 export default connect(null, mapDispatchToProps)(PlacesList);

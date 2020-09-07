@@ -11,15 +11,13 @@ describe(`PlaceCard tests`, () => {
   });
 
   const onPlaceHeaderClick = jest.fn();
-  const handleCardPointerEnter = jest.fn();
-  const handleCardPointerLeave = jest.fn();
+  const onPlaceCardHover = jest.fn();
 
   const renderComponent = (props = {}) => {
     return shallow(
         <PlaceCard offer={testOffer}
           onPlaceHeaderClick={onPlaceHeaderClick}
-          handleCardPointerEnter = {handleCardPointerEnter}
-          handleCardPointerLeave = {handleCardPointerLeave}
+          onPlaceCardHover = {onPlaceCardHover}
           {...props}
         />);
   };
@@ -38,8 +36,8 @@ describe(`PlaceCard tests`, () => {
     const placeCard = placeComponent.find(`article.place-card`);
 
     placeCard.simulate(`pointerenter`);
-    expect(handleCardPointerEnter).toHaveBeenCalledTimes(1);
-    expect(handleCardPointerEnter).toHaveBeenCalledWith(testOffer);
+    expect(onPlaceCardHover).toHaveBeenCalledTimes(1);
+    expect(onPlaceCardHover).toHaveBeenCalledWith(testOffer);
   });
 
   it(`Should get null on pointer leave`, () => {
@@ -47,7 +45,8 @@ describe(`PlaceCard tests`, () => {
     const placeCard = placeComponent.find(`article.place-card`);
 
     placeCard.simulate(`pointerleave`);
-    expect(handleCardPointerLeave).toHaveBeenCalledTimes(1);
+    expect(onPlaceCardHover).toHaveBeenCalledTimes(1);
+    expect(onPlaceCardHover).toHaveBeenCalledWith(null);
   });
 
 });

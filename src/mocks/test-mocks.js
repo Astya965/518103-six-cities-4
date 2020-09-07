@@ -1,4 +1,4 @@
-import {CITIES} from "../utils/constants.js";
+import {CITIES, SortType} from "../utils/constants.js";
 
 export const testOffers = [
   {
@@ -197,6 +197,7 @@ export const testStore = {
   OFFERS: {
     offers: testOffers,
     currentOffer: null,
+    currentSort: SortType.DEFAULT,
   },
   REVIEWS: {
     reviews: testReviews
@@ -211,6 +212,7 @@ export const testStoreWithCurrentOffer = {
   OFFERS: {
     offers: testOffers,
     currentOffer: testOffer,
+    currentSort: SortType.DEFAULT,
   },
   REVIEWS: {
     reviews: testReviews
